@@ -7,32 +7,33 @@
 Incluye secciones clave sobre la organización de proyectos, el diseño responsivo con CSS Flexbox (Centrado perfecto y Barra de Navegación), y una introducción a JavaScript para añadir interactividad (variables y manipulación del DOM). Ideal para iniciarse en la programación front-end con ejemplos prácticos (Tarjeta de Perfil). |
 ### Temario
 
-#### 1 Capítulo introductorio que cubre la estructura esencial de un documento HTML DOCTYPE, HEAD y BODY, las etiquetas de contenido comunes, y una guía sobre las etiquetas semánticas de HTML5 header, main, article, footer para una mejor accesibilidad y SEO.
+#### 1 ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico
  
-#### 2 Capítulo que introduce los conceptos básicos de CSS (Cascading Style Sheets) y explica el método recomendado para aplicar estilos a una página web. Cubre la creación del archivo .css, las reglas fundamentales de estilo (selectores, propiedades y valores) para elementos como body y h1, y el uso crucial de la etiqueta <link> con el atributo rel=""stylesheet"" dentro de la sección <head> del HTML.
+#### 2 🎨 Enlazando CSS a tu HTML
 
- #### 3 Capítulo que profundiza en el uso de los atributos id (identificador único) y class (grupo de estilos) en HTML para aplicar CSS de manera efectiva. Explica el concepto de estilos en línea (inline styles) como un método a evitar. Además, detalla la estructura completa para la creación de tablas de datos con las etiquetas semánticas table, tr, th y td, incluyendo las prácticas profesionales para la organización de la tabla thead, tbody, tfoot).
+ #### 🏷️ ¿Qué son los Atributos en HTML?
 
-#### 4 Capítulo dedicado a la interactividad y el contenido rico. Cubre la estructura esencial de los formularios HTML (<form>) y los principales tipos de entrada de datos (<input type=""..."">) como text, password, email y checkbox. Además, introduce el manejo de contenido multimedia con las etiquetas modernas de HTML5, incluyendo la inserción de video (<video>) y audio (<audio>), explicando atributos clave como controls, autoplay y la importancia de la etiqueta <source> para la compatibilidad de formatos.
+#### 4 📝 Formularios (`<form>`)
 
-#### 5 Lección práctica que guía en la construcción de un componente de interfaz de usuario común: una Tarjeta de Perfil. Cubre la creación de la estructura HTML con div y class para un contenedor semántico, el uso de etiquetas de texto y de imagen. Detalla la aplicación de estilos CSS para el contenedor principal (sombra, alineación, tamaño), la aplicación de estilos a la imagen (borde, redondeo 50% para hacerla circular), y la jerarquía de estilos de texto (h1, h2, p).
+#### 5 💻 El Ejemplo Práctico: Tarjeta de Perfil
 
-#### 6 Capítulo dedicado a añadir interactividad y dinamismo visual. Explica cómo usar el pseudoclase :hover para aplicar estilos solo cuando el ratón se sitúa sobre un elemento. Detalla la implementación de un efecto de ""elevación"" en una tarjeta, combinando propiedades como un box-shadow más intenso y la función transform: translateY() para mover el elemento. Finalmente, cubre la propiedad transition y su uso crucial para hacer que el cambio de estilos sea suave y animado en lugar de instantáneo.
 
-#### 7 Capítulo esencial sobre la organización profesional de un proyecto de desarrollo web. Define la función de la Carpeta Raíz (index.html) y las subcarpetas estándar para estilos (css/), imágenes (img/) y scripts (js/). Explica en detalle el concepto y la importancia de las Rutas Relativas (Paths) para enlazar correctamente los archivos CSS, imágenes y navegar entre páginas, incluyendo el uso de ../ para subir de nivel en la jerarquía de carpetas.
+#### 6 ✨ Efecto "Hover" en CSS
 
-#### 8 Capítulo que explica CSS Flexbox como la herramienta moderna para el diseño de layouts unidimensionales. Introduce los conceptos clave del Contenedor Flexible (display: flex) y los Items Flexibles, y define los dos ejes de alineación: el Eje Principal y el Eje Cruzado. Detalla las propiedades esenciales del contenedor como flex-direction, justify-content (alineación en el eje principal) y align-items (alineación en el eje cruzado). Incluye un ejemplo práctico para lograr el Centrado Perfecto de un elemento.
+#### 7 📂 Organización de Proyectos Web (Estructura de Carpetas)
 
-#### 9 Lección práctica para construir una barra de navegación moderna y responsiva. Detalla el uso de la etiqueta semántica <nav> como contenedor principal y la lista desordenada  para los enlaces. El capítulo explica cómo aplicar display: flex; al contenedor y utilizar justify-content: space-between; para separar el logo y los enlaces a los extremos opuestos, así como el uso de align-items: center; para el centrado vertical. También incluye estilos básicos para eliminar viñetas y añadir un efecto :hover a los enlaces.
+#### 8 📐 Entendiendo Flexbox
 
-#### 10 Capítulo de introducción a JavaScript como el ""verbo"" o la ""acción"" de la web, complementando la estructura (HTML) y el estilo (CSS). Explica la práctica recomendada para enlazar el archivo .js al documento HTML (justo antes del cierre de </body>) y por qué. Cubre los conceptos fundamentales como la declaración de variables (let, const) y el Modelo de Objeto del Documento (DOM), demostrando cómo seleccionar elementos (document.getElementById) y modificar su contenido y estilo. Finalmente, introduce el manejo de Eventos con addEventListener() para crear interactividad, como un clic en un botón.
+#### 9 🧭 Barra de Navegación con Flexbox
 
-#### 11 Capítulo práctico que demuestra la manipulación en tiempo real del Modelo de Objeto del Documento (DOM). El ejemplo guía al usuario a través de la creación de un botón que, al ser pulsado, cambia el texto y el color de un párrafo. Se enfatizan los tres pasos clave en JavaScript: Seleccionar el elemento por su ID (document.getElementById), Definir la Función que realiza el cambio (textContent y style.color) y Asignar el Evento (addEventListener(""click"", ...)), que conecta la función al botón.
+#### 10 💡 Introducción a JavaScript
 
-#### 12 Capítulo enfocado en dos pilares del desarrollo moderno. En JavaScript, explica el concepto de asincronía para evitar el bloqueo del navegador y presenta la sintaxis async/await como el método más limpio para trabajar con Promises y operaciones que requieren tiempo (como peticiones a APIs). En CSS, introduce los Preprocesadores (especialmente Sass/SCSS) como una herramienta para hacer el CSS más dinámico y mantenible, cubriendo conceptos clave como Variables ($) y Anidamiento (Nesting).
+#### 11 🖱️ Manipulación del DOM con un Botón
 
-#### 13 Capítulo enfocado en un ejemplo práctico de asincronía en JavaScript utilizando la función fetch y la sintaxis async/await para cargar datos de una API, mostrando cómo mantener la interfaz de usuario receptiva durante la espera. En la parte de CSS, se introduce el concepto de SASS Mixins (@mixin y @include), que permiten crear bloques de código CSS reusables (como una sombra de caja con múltiples prefijos de proveedor) para evitar la repetición y mejorar la mantenibilidad del código.
+#### 12 🌐 JavaScript Avanzado: Asincronía y APIs
 
-#### 14 Este capítulo cubre dos temas esenciales para el desarrollo web moderno
+#### 13 🚀 Ejemplo Práctico de JavaScript Asíncrono (`async/await`)
+
+#### 14 📱 1. Diseño Web Responsivo (Responsive Design)
 
   
