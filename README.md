@@ -8,9 +8,7 @@ Incluye secciones clave sobre la organización de proyectos, el diseño responsi
 ### Temario
 
 #### 1 ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico
- 
 #### 2 🎨 Enlazando CSS a tu HTML
-
 #### 3 🏷️ ¿Qué son los Atributos en HTML?
 
 #### 4 📝 Formularios (`<form>`)
