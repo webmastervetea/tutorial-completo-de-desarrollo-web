@@ -5,7 +5,8 @@
  Cubre los fundamentos de HTML5 (estructura, etiquetas semánticas, formularios, multimedia), las bases de CSS para dar estilo y el manejo de atributos y clases. 
 
 Incluye secciones clave sobre la organización de proyectos, el diseño responsivo con CSS Flexbox (Centrado perfecto y Barra de Navegación), y una introducción a JavaScript para añadir interactividad (variables y manipulación del DOM). Ideal para iniciarse en la programación front-end con ejemplos prácticos (Tarjeta de Perfil). |
-## Temario
+### Temario
+
 * 1 Capítulo introductorio que cubre la estructura esencial de un documento HTML (DOCTYPE, HEAD y BODY), las etiquetas de contenido comunes (<h1>, <p>, <a>, <ul>), y una guía sobre las etiquetas semánticas de HTML5 (<header>, <main>, <article>, <footer>) para una mejor accesibilidad y SEO.
 * 2 Capítulo que introduce los conceptos básicos de CSS (Cascading Style Sheets) y explica el método recomendado para aplicar estilos a una página web. Cubre la creación del archivo .css, las reglas fundamentales de estilo (selectores, propiedades y valores) para elementos como body y h1, y el uso crucial de la etiqueta <link> con el atributo rel=""stylesheet"" dentro de la sección <head> del HTML.
 * 3 Capítulo que profundiza en el uso de los atributos id (identificador único) y class (grupo de estilos) en HTML para aplicar CSS de manera efectiva. Explica el concepto de estilos en línea (inline styles) como un método a evitar. Además, detalla la estructura completa para la creación de tablas de datos con las etiquetas semánticas <table>, <tr>, <th> y <td>, incluyendo las prácticas profesionales para la organización de la tabla (<thead>, <tbody>, <tfoot>).
