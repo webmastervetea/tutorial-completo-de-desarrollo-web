@@ -11,7 +11,7 @@ Incluye secciones clave sobre la organización de proyectos, el diseño responsi
  
 #### 2 🎨 Enlazando CSS a tu HTML
 
- #### 🏷️ ¿Qué son los Atributos en HTML?
+#### 3 🏷️ ¿Qué son los Atributos en HTML?
 
 #### 4 📝 Formularios (`<form>`)
 
