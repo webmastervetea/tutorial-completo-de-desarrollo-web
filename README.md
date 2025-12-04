@@ -10,28 +10,16 @@ Incluye secciones clave sobre la organización de proyectos, el diseño responsi
 #### 1 ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico
 #### 2 🎨 Enlazando CSS a tu HTML
 #### 3 🏷️ ¿Qué son los Atributos en HTML?
-
 #### 4 📝 Formularios (`<form>`)
-
 #### 5 💻 El Ejemplo Práctico: Tarjeta de Perfil
-
-
 #### 6 ✨ Efecto "Hover" en CSS
-
 #### 7 📂 Organización de Proyectos Web (Estructura de Carpetas)
-
 #### 8 📐 Entendiendo Flexbox
-
 #### 9 🧭 Barra de Navegación con Flexbox
-
 #### 10 💡 Introducción a JavaScript
-
 #### 11 🖱️ Manipulación del DOM con un Botón
-
 #### 12 🌐 JavaScript Avanzado: Asincronía y APIs
-
 #### 13 🚀 Ejemplo Práctico de JavaScript Asíncrono (`async/await`)
-
 #### 14 📱 1. Diseño Web Responsivo (Responsive Design)
 
   
