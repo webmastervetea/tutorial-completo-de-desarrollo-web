@@ -1,4 +1,7 @@
 # Tutorial Completo de Desarrollo Web: Domina HTML5, CSS y Flexbox (Guía para Principiantes) [[Soporte](https://www.linkedin.com/in/oscarlizarragag/)]
-*** Aprende a construir tu primera página web desde cero con este curso paso a paso. 
-*** Cubre los fundamentos de HTML5 (estructura, etiquetas semánticas, formularios, multimedia), las bases de CSS para dar estilo y el manejo de atributos y clases. 
-*** Incluye secciones clave sobre la organización de proyectos, el diseño responsivo con CSS Flexbox (Centrado perfecto y Barra de Navegación), y una introducción a JavaScript para añadir interactividad (variables y manipulación del DOM). Ideal para iniciarse en la programación front-end con ejemplos prácticos (Tarjeta de Perfil). |
+ 
+ Aprende a construir tu primera página web desde cero con este curso paso a paso. 
+
+ Cubre los fundamentos de HTML5 (estructura, etiquetas semánticas, formularios, multimedia), las bases de CSS para dar estilo y el manejo de atributos y clases. 
+
+Incluye secciones clave sobre la organización de proyectos, el diseño responsivo con CSS Flexbox (Centrado perfecto y Barra de Navegación), y una introducción a JavaScript para añadir interactividad (variables y manipulación del DOM). Ideal para iniciarse en la programación front-end con ejemplos prácticos (Tarjeta de Perfil). |
