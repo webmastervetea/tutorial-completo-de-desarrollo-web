@@ -8,7 +8,7 @@ Incluye secciones clave sobre la organización de proyectos, el diseño responsi
 Tienes el tutorial en formato  .md (GitHub) o .html (web)
 ### Temario
 
-#### 1 [[HTML]()] [[MD]()] ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico
+#### 1  ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico [[HTML]()] [[MD]()]
 #### 2 [[HTML]()] [[MD]()] 🎨 Enlazando CSS a tu HTML
 #### 3 [[HTML]()] [[MD]()] 🏷️ ¿Qué son los Atributos en HTML?
 #### 4 [[HTML]()] [[MD]()] 📝 Formularios (`<form>`)
