@@ -5,7 +5,7 @@
  Cubre los fundamentos de HTML5 (estructura, etiquetas semánticas, formularios, multimedia), las bases de CSS para dar estilo y el manejo de atributos y clases. 
 
 Incluye secciones clave sobre la organización de proyectos, el diseño responsivo con CSS Flexbox (Centrado perfecto y Barra de Navegación), y una introducción a JavaScript para añadir interactividad (variables y manipulación del DOM). Ideal para iniciarse en la programación front-end con ejemplos prácticos (Tarjeta de Perfil). |
-Tienes el tutorial en formato  .md (GitHub) o .html (web)
+Tienes el tutorial en formato  .md (GitHub) o .html (si prefieres descargarlo y verlo tranquilamente desde tu movil o computadora)
 ### Temario
 
 #### 1 ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico [[HTML](https://github.com/webmastervetea/tutorial-completo-de-desarrollo-web/blob/main/1-html-basico-estructura-etiquetas-y-fundamentos.html)] [[MD](https://github.com/webmastervetea/tutorial-completo-de-desarrollo-web/blob/main/1-html-basico-estructura-etiquetas-y-fundamentos.md)]
