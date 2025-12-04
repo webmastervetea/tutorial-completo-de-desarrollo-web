@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial JS Práctico - Manipulación DOM</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #texto-dinamico {
+            font-size: 1.2em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: white;
+            transition: color 0.3s ease; /* Para que el cambio de color sea suave */
+        }
+
+        #boton-cambio {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.2s;
+        }
+
+        #boton-cambio:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>🖱️ Manipulación del DOM con un Botón</h2>
+            <p>Este es el ejemplo más práctico de **JavaScript**. Muestra cómo conectar un evento (un clic) a una función que a su vez **manipula el DOM** (cambiando el texto y el estilo de un elemento HTML).</p>
+            
+            <h3>Paso 1: Estructura HTML para la Interacción</h3>
+            <p>Necesitamos un elemento a modificar (el párrafo) y un elemento para la acción (el botón). Ambos tienen un **<code>id</code>** único para que JavaScript pueda encontrarlos.</p>
+
+            <pre><code>
+&lt;h1&gt;Ejemplo de Manipulación DOM&lt;/h1&gt;
+
+&lt;p id="texto-dinamico"&gt;
+    Este es el texto original. Haz clic en el botón para cambiarlo.
+&lt;/p&gt;
+
+&lt;button id="boton-cambio"&gt;Cambiar Texto&lt;/button&gt;
+            </code></pre>
+
+            <hr>
+
+            <h3>Paso 2: La Acción JavaScript</h3>
+            <p>El código JS se encarga de seleccionar los elementos por su <code>id</code>, definir qué hacer y, finalmente, asignar la función al evento <code>click</code> del botón.</p>
+            
+            <pre><code>
+// 1. SELECCIONAR LOS ELEMENTOS
+const parrafo = document.getElementById("texto-dinamico"); 
+const boton = document.getElementById("boton-cambio");
+
+
+// 2. DEFINIR LA FUNCIÓN (La acción que queremos realizar)
+function cambiarContenido() {
+    // Usamos 'textContent' para leer y escribir el texto del párrafo
+    if (parrafo.textContent === "¡El contenido ha sido modificado por JavaScript!") {
+        parrafo.textContent = "¡Volvimos al texto original! Vuelve a hacer clic.";
+        parrafo.style.color = "black";
+    } else {
+        parrafo.textContent = "¡El contenido ha sido modificado por JavaScript!";
+        // También usamos 'style.color' para modificar estilos CSS directamente
+        parrafo.style.color = "blue";
+    }
+}
+
+
+// 3. ASIGNAR EL EVENTO (Conectar la función al botón)
+boton.addEventListener("click", cambiarContenido);
+            </code></pre>
+
+            <hr>
+
+            <h2>✨ Demostración Interactiva</h2>
+            <p>Este recuadro muestra el resultado final. ¡Haz clic en el botón para probar la interacción!</p>
+
+            <h1>Ejemplo de Manipulación DOM</h1>
+
+            <p id="texto-dinamico">
+                Este es el texto original. Haz clic en el botón para cambiarlo.
+            </p>
+
+            <button id="boton-cambio">Cambiar Texto</button>
+        </section>
+    </main>
+
+    <footer>
+        <p style="margin-top: 50px; text-align: center;">Fin del Proyecto Práctico de JavaScript.</p>
+    </footer>
+
+    <script>
+        // 1. SELECCIONAR LOS ELEMENTOS
+        // Referencia al párrafo (el elemento que va a ser modificado)
+        const parrafo = document.getElementById("texto-dinamico"); 
+
+        // Referencia al botón (el elemento que va a desencadenar la acción)
+        const boton = document.getElementById("boton-cambio");
+
+
+        // 2. DEFINIR LA FUNCIÓN (La acción que queremos realizar)
+        function cambiarContenido() {
+            // Verificamos cuál es el texto actual y lo cambiamos por el opuesto.
+            if (parrafo.textContent === "¡El contenido ha sido modificado por JavaScript!") {
+                parrafo.textContent = "¡Volvimos al texto original! Vuelve a hacer clic.";
+                parrafo.style.color = "black";
+            } else {
+                parrafo.textContent = "¡El contenido ha sido modificado por JavaScript!";
+                // También podemos usar JS para modificar estilos CSS directamente:
+                parrafo.style.color = "blue";
+            }
+        }
+
+
+        // 3. ASIGNAR EL EVENTO (Conectar la función al botón)
+        // Le decimos al botón: "Cuando ocurra un 'click', ejecuta la función cambiarContenido"
+        boton.addEventListener("click", cambiarContenido);
+    </script>
+</body>
+</html>

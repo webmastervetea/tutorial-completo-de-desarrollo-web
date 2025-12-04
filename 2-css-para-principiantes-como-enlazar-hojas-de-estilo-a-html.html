@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo de Desarrollo Web - Enlazando CSS</title>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>🎨 Enlazando CSS a tu HTML</h2>
+
+            <section>
+                <h3>Paso 1: Crea tu Archivo CSS</h3>
+                <p>Crea un nuevo archivo de texto y guárdalo como <code>estilos.css</code> (o cualquier nombre que elijas, siempre terminando en <code>.css</code>).</p>
+
+                <h4>Ejemplo de Contenido de <code>estilos.css</code>:</h4>
+                <pre><code>
+body {
+    background-color: #f4f4f9; /* Color de fondo muy claro */
+    font-family: Arial, sans-serif;
+    margin: 40px;
+}
+
+h1 {
+    color: #333366; /* Un color azul oscuro */
+    border-bottom: 2px solid #ffaa00; /* Línea naranja debajo del título */
+    padding-bottom: 10px;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+                </code></pre>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3>Paso 2: Enlaza el Archivo en tu HTML</h3>
+                <p>En tu archivo HTML, debes usar la etiqueta <code>&lt;link&gt;</code> dentro de la sección <code>&lt;head&gt;</code>.</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Atributo</th>
+                            <th>Propósito</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong><code>rel="stylesheet"</code></strong></td>
+                            <td>Indica que el archivo enlazado es una hoja de estilos.</td>
+                        </tr>
+                        <tr>
+                            <td><strong><code>href="ruta/al/archivo.css"</code></strong></td>
+                            <td>Especifica la ubicación del archivo CSS.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Ejemplo de tu archivo <code>index.html</code>:</h4>
+                <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Página con Estilo&lt;/title&gt;
+    
+    &lt;link rel="stylesheet" href="estilos.css"&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;¡Hola Mundo con Estilo!&lt;/h1&gt;
+    &lt;p&gt;Este texto ahora usa la fuente y el tamaño definidos en el archivo estilos.css.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+            </section>
+
+            <hr>
+
+            <section>
+                <h3>✨ Resultado:</h3>
+                <p>Al abrir tu <code>index.html</code> en el navegador, aplicará automáticamente los estilos definidos en <code>estilos.css</code>:</p>
+                <ul>
+                    <li>El fondo del cuerpo (<code>&lt;body&gt;</code>) será gris claro.</li>
+                    <li>El texto usará la fuente Arial.</li>
+                    <li>El título principal (<code>&lt;h1&gt;</code>) será azul oscuro y tendrá una línea naranja debajo.</li>
+                </ul>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fin de la sección de Enlace CSS.</p>
+    </footer>
+
+</body>
+</html>

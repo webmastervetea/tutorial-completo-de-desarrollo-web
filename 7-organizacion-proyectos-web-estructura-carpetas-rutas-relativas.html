@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - Organización de Proyectos y Rutas</title>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>📂 Organización de Proyectos Web (Estructura de Carpetas)</h2>
+            <p>Cuando empiezas a construir un sitio web, es esencial mantener los diferentes tipos de archivos separados y organizados. Esto hace que sea más fácil encontrar y actualizar el código.</p>
+            
+            <p>Una estructura de proyecto típica se ve así:</p>
+
+            <article>
+                <h3>1. 📁 Carpeta Raíz (Root Folder)</h3>
+                <p>Esta es la carpeta principal que contiene absolutamente todo el proyecto.</p>
+                <ul>
+                    <li>**<code>index.html</code>**: La **página de inicio** por defecto de casi cualquier sitio web.</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>2. 🎨 Carpeta <code>css/</code></h3>
+                <p>Almacena todas tus **hojas de estilo**.</p>
+                <ul>
+                    <li><code>css/estilos.css</code> (o <code>css/main.css</code>): El CSS principal.</li>
+                    <li><code>css/responsive.css</code>: Archivo separado para reglas de diseño móvil (opcional).</li>
+                </ul>
+            </article>
+            
+            <article>
+                <h3>3. 🖼️ Carpeta <code>img/</code> (o <code>images/</code>)</h3>
+                <p>Guarda todo el **contenido visual** de tu sitio que no sea código.</p>
+                <ul>
+                    <li><code>img/logo.png</code></li>
+                    <li><code>img/perfil.jpg</code></li>
+                    <li><code>img/fondo.webp</code></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>4. 📝 Carpeta <code>pages/</code> (Opcional, pero Común)</h3>
+                <p>Se usa para organizar páginas secundarias.</p>
+                <ul>
+                    <li><code>pages/acerca-de.html</code></li>
+                    <li><code>pages/contacto.html</code></li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>5. 💡 Carpeta <code>js/</code> (JavaScript)</h3>
+                <p>Guarda los archivos que añaden **interactividad avanzada**.</p>
+                <ul>
+                    <li><code>js/scripts.js</code></li>
+                    <li><code>js/main.js</code></li>
+                </ul>
+            </article>
+
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🎯 Importancia de las Rutas (Paths)</h2>
+            <p>Es crucial asegurarse de que los enlaces HTML y CSS apunten a la ubicación correcta usando las **rutas**.</p>
+            
+            <h3>1. Rutas Relativas (Recomendadas)</h3>
+            <p>Una ruta relativa describe la ubicación de un archivo **en relación con el archivo actual**.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Situación</th>
+                        <th>Código de Enlace</th>
+                        <th>Explicación</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Enlazar CSS</strong> (Desde <code>index.html</code> a <code>css/estilos.css</code>)</td>
+                        <td><code>&lt;link rel="stylesheet" href="css/estilos.css"&gt;</code></td>
+                        <td>Entra en la carpeta <code>css/</code> y busca <code>estilos.css</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insertar Imagen</strong> (Desde <code>index.html</code> a <code>img/logo.png</code>)</td>
+                        <td><code>&lt;img src="img/logo.png" alt="Logo"&gt;</code></td>
+                        <td>Entra en la carpeta <code>img/</code> y busca <code>logo.png</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Subir de nivel</strong> (Desde una página en <code>pages/</code> a <code>index.html</code>)</td>
+                        <td><code>&lt;a href="../index.html"&gt;Inicio&lt;/a&gt;</code></td>
+                        <td><code>../</code> significa <strong>"sube un nivel"</strong> (sale de <code>pages/</code>) y luego busca <code>index.html</code>.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>2. Rutas Absolutas</h3>
+            <p>Una ruta absoluta es la dirección completa de un archivo, generalmente comenzando con <code>http://</code> o <code>https://</code>.</p>
+            <p><strong>Ejemplo:</strong></p>
+            <pre><code>
+&lt;img src="https://www.misitio.com/img/foto.jpg"&gt;
+            </code></pre>
+        </section>
+    </main>
+
+    <footer>
+        <p>Saber cómo organizar tus archivos y usar rutas correctas es un paso crucial para trabajar en proyectos grandes.</p>
+    </footer>
+
+</body>
+</html>

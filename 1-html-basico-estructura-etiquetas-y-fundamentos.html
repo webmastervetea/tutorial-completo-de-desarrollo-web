@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo de Desarrollo Web - HTML Básico</title>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p>HTML (HyperText Markup Language) es el código que se usa para estructurar una página web y su contenido. HTML5 es la versión más reciente y ampliamente utilizada.</p>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <hr>
+
+    <main>
+        <section>
+            <h2>1. ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico</h2>
+            <p>Todo documento HTML debe tener una estructura básica para ser reconocido correctamente por los navegadores.</p>
+
+            <h3>Estructura Básica de un Documento HTML</h3>
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi Primera Página Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <h3>Explicación de las Etiquetas Clave:</h3>
+            <ul>
+                <li><strong><code>&lt;!DOCTYPE html&gt;</code></strong>: Define el tipo de documento para que el navegador sepa que es **HTML5**. Siempre va al principio.</li>
+                <li><strong><code>&lt;html&gt;</code></strong>: Es la etiqueta raíz que envuelve todo el contenido de la página.</li>
+                <li><strong><code>&lt;head&gt;</code></strong>: Contiene **metadatos** sobre la página (información que no se muestra directamente, como el título, el juego de caracteres, enlaces a archivos CSS, etc.).
+                    <ul>
+                        <li><strong><code>&lt;meta charset="UTF-8"&gt;</code></strong>: Especifica la codificación de caracteres, que permite mostrar tildes, eñes y otros caracteres especiales.</li>
+                        <li><strong><code>&lt;title&gt;...&lt;/title&gt;</code></strong>: El texto que aparece en la pestaña del navegador.</li>
+                    </ul>
+                </li>
+                <li><strong><code>&lt;body&gt;</code></strong>: Contiene todo el **contenido visible** para el usuario: textos, imágenes, enlaces, videos, etc.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>2. 📝 Etiquetas Comunes para Contenido</h2>
+            <p>Dentro de la etiqueta <code>&lt;body&gt;</code>, usarás estas etiquetas para estructurar tu texto:</p>
+
+            <h3>Títulos y Párrafos</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etiqueta</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code></td>
+                        <td>Encabezados/Títulos</td>
+                        <td>Se utilizan para definir la importancia de los títulos. <code>&lt;h1&gt;</code> es el más importante, <code>&lt;h6&gt;</code> el menos.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;p&gt;</code></td>
+                        <td>Párrafo</td>
+                        <td>Define un bloque de texto común.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;br&gt;</code></td>
+                        <td>Salto de Línea</td>
+                        <td>Crea un salto de línea simple. Es una etiqueta <strong>vacía</strong> (no necesita etiqueta de cierre).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Ejemplo de Títulos y Párrafos:</h4>
+            <pre><code>
+&lt;h1&gt;Título Principal (el más importante)&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;p&gt;Este es un párrafo de texto en mi nueva página web.&lt;/p&gt;
+&lt;p&gt;Este es otro párrafo. Aquí hay un salto de línea:&lt;br&gt;Ahora seguimos en la siguiente línea.&lt;/p&gt;
+            </code></pre>
+
+            <h3>Listas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etiqueta</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;ul&gt;</code></td>
+                        <td>Lista Desordenada</td>
+                        <td>Una lista con viñetas.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;ol&gt;</code></td>
+                        <td>Lista Ordenada</td>
+                        <td>Una lista con números o letras.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;li&gt;</code></td>
+                        <td>Elemento de Lista</td>
+                        <td>Define cada elemento dentro de las listas (<code>&lt;ul&gt;</code> o <code>&lt;ol&gt;</code>).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Ejemplo de Listas:</h4>
+            <pre><code>
+&lt;h3&gt;Lista de Compras&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;Pan&lt;/li&gt;
+    &lt;li&gt;Leche&lt;/li&gt;
+    &lt;li&gt;Huevos&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Pasos para el Café&lt;/h3&gt;
+&lt;ol&gt;
+    &lt;li&gt;Hervir agua.&lt;/li&gt;
+    &lt;li&gt;Añadir café molido.&lt;/li&gt;
+    &lt;li&gt;Servir y disfrutar.&lt;/li&gt;
+&lt;/ol&gt;
+            </code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>3. 🔗 Enlaces e Imágenes</h2>
+            <p>El contenido multimedia e interactivo es fundamental en la web:</p>
+
+            <h3>Enlaces (Hyperlinks)</h3>
+            <p>La etiqueta <code>&lt;a&gt;</code> (de "anchor") se usa para crear enlaces. El atributo <strong><code>href</code></strong> es obligatorio e indica la URL de destino.</p>
+            <pre><code>
+&lt;p&gt;Visita el sitio de &lt;a href="https://www.google.com" target="_blank"&gt;Google&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="acerca-de.html"&gt;Sobre mí&lt;/a&gt;&lt;/p&gt;
+            </code></pre>
+            <p>El atributo <strong><code>target="_blank"</code></strong> hace que el enlace se abra en una pestaña nueva.</p>
+
+            <h3>Imágenes</h3>
+            <p>La etiqueta <code>&lt;img&gt;</code> inserta una imagen. Es otra etiqueta <strong>vacía</strong>. Los atributos clave son:</p>
+            <ul>
+                <li><strong><code>src</code></strong> (source): La ruta (URL o ruta de archivo) donde se encuentra la imagen.</li>
+                <li><strong><code>alt</code></strong> (alternative text): Texto que se muestra si la imagen no se carga y es fundamental para la accesibilidad (lectores de pantalla).</li>
+            </ul>
+            <pre><code>
+&lt;img src="imagenes/logo.png" alt="Logotipo de la empresa"&gt;
+            </code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>4. 🧱 Etiquetas Semánticas de HTML5</h2>
+            <p>HTML5 introdujo etiquetas que dan <strong>significado</strong> a las partes de la página, ayudando a los motores de búsqueda y a la accesibilidad.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etiqueta</th>
+                        <th>Significado</th>
+                        <th>Ubicación Común</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;header&gt;</code></td>
+                        <td>Contenido introductorio o un grupo de navegación.</td>
+                        <td>Parte superior de la página o de una sección.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;nav&gt;</code></td>
+                        <td>Contiene los enlaces de navegación (menús).</td>
+                        <td>Dentro del <code>&lt;header&gt;</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;main&gt;</code></td>
+                        <td>El contenido principal y único de la página (solo debe haber uno).</td>
+                        <td>La sección más importante.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;section&gt;</code></td>
+                        <td>Un grupo temático de contenido.</td>
+                        <td>Para agrupar contenido relacionado.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;article&gt;</code></td>
+                        <td>Un contenido independiente y autocontenido (como una publicación de blog).</td>
+                        <td>Dentro de <code>&lt;main&gt;</code> o <code>&lt;section&gt;</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;aside&gt;</code></td>
+                        <td>Contenido relacionado pero secundario (como una barra lateral).</td>
+                        <td>Generalmente a un lado.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;footer&gt;</code></td>
+                        <td>Información de contacto, derechos de autor, enlaces secundarios.</td>
+                        <td>Parte inferior de la página.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Estructura Semántica de Ejemplo:</h3>
+            <pre><code>
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Mi Blog de Viajes&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href="index.html"&gt;Inicio&lt;/a&gt; | 
+            &lt;a href="galeria.html"&gt;Galería&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Mi Primer Viaje a Japón&lt;/h2&gt;
+            &lt;p&gt;...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2024 Mi Blog.&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+            </code></pre>
+        </section>
+    </main>
+
+    <hr>
+    
+    <footer>
+        <p>Fin del Tutorial Básico de HTML.</p>
+    </footer>
+
+</body>
+</html>

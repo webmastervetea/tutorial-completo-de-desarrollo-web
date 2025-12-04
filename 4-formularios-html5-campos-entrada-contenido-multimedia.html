@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo de Desarrollo Web - Formularios y Multimedia</title>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>📝 Formularios (<code>&lt;form&gt;</code>)</h2>
+            <p>Los **formularios** son esenciales para la **interactividad** en la web, ya que permiten a los usuarios ingresar datos (nombres, correos electrónicos, comentarios, etc.).</p>
+
+            <h3>Estructura Básica</h3>
+            <p>La etiqueta principal es <code>&lt;form&gt;</code>, y contiene los elementos de entrada de datos (<code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code>, etc.).</p>
+
+            <h4>Atributos Clave de <code>&lt;form&gt;</code>:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Atributo Clave de <code>&lt;form&gt;</code></th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><code>action</code></strong></td>
+                        <td>Especifica la URL o el archivo al que se enviarán los datos del formulario al ser completado.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>method</code></strong></td>
+                        <td>Define el método HTTP para enviar los datos (<code>GET</code> o <code>POST</code>). <code>POST</code> es más seguro para datos sensibles.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Elementos de Entrada (<code>&lt;input&gt;</code>)</h3>
+            <p>La etiqueta <code>&lt;input&gt;</code> es la más versátil en los formularios. Su comportamiento se define principalmente por el atributo **<code>type</code>**.</p>
+
+            <h4>Tipos de Entrada Comunes:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th><code>type</code></th>
+                        <th>Descripción</th>
+                        <th>Ejemplo de Uso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong><code>text</code></strong></td>
+                        <td>Texto simple de una línea (el valor predeterminado).</td>
+                        <td>Nombre de usuario.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>password</code></strong></td>
+                        <td>Oculta el texto ingresado.</td>
+                        <td>Contraseña.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>email</code></strong></td>
+                        <td>Valida que el texto tenga formato de correo electrónico.</td>
+                        <td>Correo electrónico del usuario.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>number</code></strong></td>
+                        <td>Permite solo la entrada de números.</td>
+                        <td>Edad o cantidad de productos.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>checkbox</code></strong></td>
+                        <td>Una casilla de selección (puede seleccionar varias).</td>
+                        <td>Aceptar términos y condiciones.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>radio</code></strong></td>
+                        <td>Un botón de opción (solo puede seleccionar una en un grupo).</td>
+                        <td>Seleccionar género.</td>
+                    </tr>
+                    <tr>
+                        <td><strong><code>submit</code></strong></td>
+                        <td>El botón para enviar el formulario.</td>
+                        <td>Botón "Enviar" o "Registrar".</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Ejemplo de Formulario Completo:</h4>
+            <pre><code>
+&lt;form action="/procesar-datos" method="POST"&gt;
+    
+    &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+    &lt;input type="text" id="nombre" name="nombre_usuario" required&gt;
+    
+    &lt;label for="clave"&gt;Contraseña:&lt;/label&gt;
+    &lt;input type="password" id="clave" name="password" required&gt;
+    
+    &lt;label for="comentarios"&gt;Comentarios:&lt;/label&gt;
+    &lt;textarea id="comentarios" name="comentario_usuario" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;input type="submit" value="Enviar Formulario"&gt;
+    
+&lt;/form&gt;
+            </code></pre>
+
+            <ul>
+                <li>**<code>&lt;label&gt;</code>**: Asocia un texto descriptivo a un control de formulario. El atributo <code>for</code> debe coincidir con el <code>id</code> del elemento de entrada.</li>
+                <li>**<code>name</code>**: **Crucial**. Es el nombre que se usará para identificar el dato cuando se envíe al servidor.</li>
+                <li>**<code>required</code>**: Atributo booleano que obliga al usuario a llenar el campo antes de enviar.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🎬 2. Videos y Audio</h2>
+            <p>HTML5 simplificó drásticamente la inserción de contenido multimedia con las etiquetas <code>&lt;video&gt;</code> y <code>&lt;audio&gt;</code>.</p>
+
+            <article>
+                <h3>La Etiqueta <code>&lt;video&gt;</code></h3>
+                <p>Permite reproducir videos directamente sin necesidad de <em>plugins</em> externos (como Flash).</p>
+
+                <h4>Ejemplo de Código de Video:</h4>
+                <pre><code>
+&lt;video width="640" height="360" controls&gt;
+    &lt;source src="mi-video.mp4" type="video/mp4"&gt;
+    &lt;source src="mi-video.webm" type="video/webm"&gt;
+    Tu navegador no soporta la etiqueta de video.
+&lt;/video&gt;
+                </code></pre>
+
+                <h4>Atributos Clave de <code>&lt;video&gt;</code>:</h4>
+                <ul>
+                    <li>**<code>controls</code>**: Muestra los controles de reproducción estándar del navegador (pausa, volumen, barra de progreso).</li>
+                    <li>**<code>autoplay</code>**: Intenta reproducir el video automáticamente al cargar la página (a menudo bloqueado por navegadores).</li>
+                    <li>**<code>loop</code>**: Hace que el video se repita indefinidamente.</li>
+                    <li>**<code>poster</code>**: Una URL de imagen que se muestra mientras el video se está cargando o antes de que el usuario lo reproduzca.</li>
+                    <li>**<code>&lt;source&gt;</code>**: Permite especificar múltiples archivos de video en diferentes formatos. Esto es crucial para la **compatibilidad**, ya que no todos los navegadores admiten los mismos formatos de video (MP4, WebM, Ogg).</li>
+                </ul>
+            </article>
+
+            <article>
+                <h3>La Etiqueta <code>&lt;audio&gt;</code></h3>
+                <p>Funciona de manera idéntica a <code>&lt;video&gt;</code>, pero solo para archivos de sonido.</p>
+
+                <h4>Ejemplo de Código de Audio:</h4>
+                <pre><code>
+&lt;audio controls&gt;
+    &lt;source src="musica-fondo.mp3" type="audio/mp3"&gt;
+    &lt;source src="musica-fondo.ogg" type="audio/ogg"&gt;
+    Tu navegador no soporta el elemento de audio.
+&lt;/audio&gt;
+                </code></pre>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fin de la sección de Formularios y Multimedia.</p>
+    </footer>
+
+</body>
+</html>

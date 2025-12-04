@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Práctico - API Fetch y SASS Mixin</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+        }
+
+        /* Estilos del ejemplo API */
+        #btnCargar {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.2s;
+        }
+
+        #btnCargar:hover {
+            background-color: #0056b3;
+        }
+
+        #infoUsuario {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: white;
+            min-height: 50px;
+        }
+        
+        pre {
+            background-color: #eee;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            overflow-x: auto;
+        }
+
+        /* ----------------------------------------------------- */
+        /* CSS COMPILADO (Resultado del SASS Mixin) */
+        /* Estos son los estilos reales que el navegador renderiza */
+        /* ----------------------------------------------------- */
+
+        .contenedor-sass {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+
+        /* Estilos aplicados por el Mixin sombra-caja(rgba(0, 0, 0, 0.2), 0px, 4px) */
+        .caja-clara {
+            background-color: white;
+            padding: 20px;
+            flex: 1;
+            /* Mixin Sombra 1 */
+            -webkit-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos aplicados por el Mixin sombra-caja(rgba(0, 123, 255, 0.4), 2px, 8px) */
+        .caja-oscura {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            flex: 1;
+            /* Mixin Sombra 2 */
+            -webkit-box-shadow: 2px 8px 10px rgba(0, 123, 255, 0.4);
+            -moz-box-shadow: 2px 8px 10px rgba(0, 123, 255, 0.4);
+            box-shadow: 2px 8px 10px rgba(0, 123, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. 🚀 Ejemplo Práctico de JavaScript Asíncrono (`async/await`)</h2>
+            <p>Usaremos la función **`fetch`** para simular la obtención de datos de una API (una tarea que siempre toma tiempo). Esto demuestra cómo <code>await</code> permite que el código espere la respuesta antes de intentar mostrar los datos.</p>
+
+            <h3>A. Estructura HTML para la Interacción</h3>
+            <p>Necesitamos un botón para iniciar la acción y un área donde mostraremos los datos obtenidos del usuario.</p>
+            <div id="demo-js">
+                <h1>Información de Usuario Asíncrona</h1>
+                <button id="btnCargar">Cargar Usuario</button>
+                
+                <div id="infoUsuario">
+                    <p>Presiona el botón para cargar los datos del usuario 1.</p>
+                </div>
+            </div>
+
+            <h3>B. Código JavaScript (`script-async.js`)</h3>
+            <pre><code>
+const btnCargar = document.getElementById("btnCargar");
+const infoUsuarioDiv = document.getElementById("infoUsuario");
+
+// 1. Definición de la función asíncrona
+async function cargarUsuario() {
+    infoUsuarioDiv.innerHTML = 'Cargando datos...'; // Feedback
+
+    try {
+        // La API JSONPlaceholder es un servicio público de datos de prueba
+        const respuesta = await fetch('https://jsonplaceholder.typicode.com/users/1');
+        
+        if (!respuesta.ok) { // Verifica si la respuesta es satisfactoria (código 200)
+            throw new Error(`Error en la red: ${respuesta.status}`);
+        }
+        
+        const usuario = await respuesta.json(); // Convierte la respuesta a objeto JS
+        
+        // 2. Manipulación del DOM para mostrar los datos
+        infoUsuarioDiv.innerHTML = `
+            &lt;h3&gt;Datos Obtenidos Correctamente&lt;/h3&gt;
+            &lt;p&gt;&lt;strong&gt;Nombre:&lt;/strong&gt; ${usuario.name}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Email:&lt;/strong&gt; ${usuario.email}&lt;/p&gt;
+            &lt;p&gt;&lt;strong&gt;Ciudad:&lt;/strong&gt; ${usuario.address.city}&lt;/p&gt;
+        `;
+        
+    } catch (error) {
+        // 3. Manejo de errores
+        infoUsuarioDiv.innerHTML = `&lt;p style="color: red;"&gt;Error al cargar los datos: ${error.message}&lt;/p&gt;`;
+    }
+}
+
+// 4. Asignación del Evento
+btnCargar.addEventListener("click", cargarUsuario);
+            </code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>2. 🎨 Reutilización Avanzada de SASS: Mixins (`@mixin`)</h2>
+            <p>Los **Mixins** son bloques de código CSS reutilizable que se definen una sola vez y se pueden incluir en múltiples selectores. Son ideales para tareas repetitivas, como manejar los **prefijos de proveedor** (`-webkit-`, `-moz-`) para propiedades experimentales como `box-shadow`.</p>
+
+            <h3>A. Código SASS con el Mixin</h3>
+            <p>Definimos el mixin **<code>sombra-caja</code>** que acepta parámetros para color, posición X y posición Y.</p>
+            <pre><code>
+@mixin sombra-caja($color, $x: 0, $y: 0) {
+  // Aquí se incluyen todos los prefijos que a veces son necesarios
+  -webkit-box-shadow: $x $y 10px $color;
+  -moz-box-shadow: $x $y 10px $color;
+  box-shadow: $x $y 10px $color;
+}
+
+/* 2. Uso del Mixin en diferentes elementos */
+
+.caja-clara {
+  background-color: white;
+  padding: 20px;
+  
+  @include sombra-caja(rgba(0, 0, 0, 0.2), 0px, 4px);
+}
+
+.caja-oscura {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  
+  @include sombra-caja(rgba(0, 123, 255, 0.4), 2px, 8px);
+}
+            </code></pre>
+
+            <h3>B. Demostración del Resultado Final</h3>
+            <p>El siguiente es el resultado de aplicar el Mixin. Observa cómo ambas cajas tienen sombras diferentes con muy poco código repetido en SASS.</p>
+            
+            <div class="contenedor-sass">
+                <div class="caja-clara">
+                    <h4>Caja Clara</h4>
+                    <p>Sombra suave y gris (parámetros: 0px, 4px).</p>
+                </div>
+                <div class="caja-oscura">
+                    <h4>Caja Oscura</h4>
+                    <p>Sombra desplazada y azul brillante (parámetros: 2px, 8px).</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 30px;"><strong>Ventaja:</strong> Si mañana la propiedad de la sombra cambia, solo editas una línea dentro del <code>@mixin sombra-caja</code> y el compilador lo actualiza automáticamente en todas partes.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p style="margin-top: 50px; text-align: center;">Fin del Tutorial Completo de Desarrollo Web.</p>
+    </footer>
+
+    <script>
+        const btnCargar = document.getElementById("btnCargar");
+        const infoUsuarioDiv = document.getElementById("infoUsuario");
+
+        // Definición de la función asíncrona
+        async function cargarUsuario() {
+            infoUsuarioDiv.innerHTML = 'Cargando datos...'; // Mensaje de feedback
+
+            try {
+                // Petición a la API JSONPlaceholder para obtener el usuario 1
+                const respuesta = await fetch('https://jsonplaceholder.typicode.com/users/1');
+                
+                if (!respuesta.ok) { 
+                    throw new Error(`Error en la red: ${respuesta.status}`);
+                }
+                
+                const usuario = await respuesta.json(); // Convierte la respuesta a objeto JS
+                
+                // Manipulación del DOM para mostrar los datos
+                infoUsuarioDiv.innerHTML = `
+                    <h3>Datos Obtenidos Correctamente</h3>
+                    <p><strong>Nombre:</strong> ${usuario.name}</p>
+                    <p><strong>Email:</strong> ${usuario.email}</p>
+                    <p><strong>Compañía:</strong> ${usuario.company.name}</p>
+                `;
+                
+            } catch (error) {
+                // Manejo de errores
+                infoUsuarioDiv.innerHTML = `<p style="color: red;">Error al cargar los datos: ${error.message}</p>`;
+            }
+        }
+
+        // Asignación del Evento (Cuando se haga clic en el botón, llama a la función)
+        btnCargar.addEventListener("click", cargarUsuario);
+    </script>
+</body>
+</html>

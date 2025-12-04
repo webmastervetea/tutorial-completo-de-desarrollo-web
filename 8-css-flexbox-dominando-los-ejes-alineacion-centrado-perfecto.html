@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - CSS Flexbox</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        /* Estilos del ejemplo práctico */
+        .contenedor-padre {
+            display: flex;             /* 1. Habilita Flexbox */
+            height: 300px;             /* 2. Le damos altura para demostrar el centrado vertical */
+            border: 2px solid #333;
+            background-color: #f4f4f9;
+
+            justify-content: center;   /* 3. Centra en el Eje Principal (Horizontal por defecto) */
+            align-items: center;       /* 4. Centra en el Eje Cruzado (Vertical por defecto) */
+            
+            margin-top: 20px;
+        }
+
+        .caja-centrada {
+            padding: 20px;
+            background-color: lightcoral;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Estilos de las tablas para mejor visualización */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>📐 Entendiendo Flexbox</h2>
+            <p>Flexbox está basado en dos conceptos clave: el **Contenedor** y los **Items** (elementos hijos).</p>
+
+            <h3>1. El Contenedor Flexible (Flex Container)</h3>
+            <p>Para empezar a usar Flexbox, solo necesitas aplicar una propiedad a la caja principal que contiene los elementos que quieres organizar:</p>
+            <pre><code>
+.contenedor-padre {
+    display: flex;
+}
+            </code></pre>
+            <ul>
+                <li>Al establecer <code>display: flex;</code>, la caja principal se convierte en el **Contenedor Flexible**, y todos sus hijos directos se convierten automáticamente en **Items Flexibles**.</li>
+            </ul>
+
+            <h3>2. Los Ejes de Flexbox</h3>
+            <p>Flexbox organiza el contenido a lo largo de dos ejes:</p>
+            <ul>
+                <li>**Eje Principal (<code>Main Axis</code>)**: Es la dirección principal en la que se colocan los items. Por defecto, es **horizontal** (de izquierda a derecha).</li>
+                <li>**Eje Cruzado (<code>Cross Axis</code>)**: Es el eje perpendicular al principal. Por defecto, es **vertical** (de arriba abajo).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>⚙️ Propiedades Clave del Contenedor</h2>
+            <p>Estas propiedades se aplican al **Contenedor Padre** (<code>display: flex;</code>) y controlan la dirección y alineación de todos sus hijos.</p>
+
+            <h3>A. Dirección (<code>flex-direction</code>)</h3>
+            <p>Define el Eje Principal (la dirección en la que se ordenan los items).</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Valor</th>
+                        <th>Dirección del Eje Principal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>row</code> (Por defecto)</td>
+                        <td>Horizontal, de izquierda a derecha.</td>
+                    </tr>
+                    <tr>
+                        <td><code>column</code></td>
+                        <td>Vertical, de arriba a abajo.</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>B. Justificación (<code>justify-content</code>)</h3>
+            <p>Controla cómo los items se distribuyen y se alinean a lo largo del **Eje Principal**. Ideal para centrar horizontalmente o distribuir el espacio.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Valor</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>flex-start</code> (Por defecto)</td>
+                        <td>Agrupa los items al inicio del eje.</td>
+                    </tr>
+                    <tr>
+                        <td>**<code>center</code>**</td>
+                        <td>**Centra** todos los items en el eje principal.</td>
+                    </tr>
+                    <tr>
+                        <td><code>space-between</code></td>
+                        <td>Distribuye el espacio **entre** los items (los extremos tocan los bordes).</td>
+                    </tr>
+                    <tr>
+                        <td><code>space-around</code></td>
+                        <td>Distribuye el espacio alrededor de cada item (hay medio espacio en los extremos).</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>C. Alineación (<code>align-items</code>)</h3>
+            <p>Controla cómo los items se alinean a lo largo del **Eje Cruzado**. Ideal para centrar verticalmente.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Valor</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>flex-start</code></td>
+                        <td>Agrupa los items al inicio del eje cruzado.</td>
+                    </tr>
+                    <tr>
+                        <td>**<code>center</code>**</td>
+                        <td>**Centra** los items en el eje cruzado.</td>
+                    </tr>
+                    <tr>
+                        <td><code>stretch</code> (Por defecto)</td>
+                        <td>Los items se estiran para llenar el contenedor.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🛠️ Ejemplo Práctico: Centrado Perfecto</h2>
+            <p>Centrar algo perfectamente (horizontal y verticalmente) es trivial con Flexbox.</p>
+
+            <h3>HTML (El contenedor y el Item a centrar):</h3>
+            <pre><code>
+&lt;div class="contenedor-padre"&gt;
+    &lt;div class="caja-centrada"&gt;
+        Centrado Perfecto
+    &lt;/div&gt;
+&lt;/div&gt;
+            </code></pre>
+
+            <h3>CSS (Aplicamos las propiedades al Contenedor Padre):</h3>
+            <pre><code>
+.contenedor-padre {
+    display: flex;             /* 1. Habilita Flexbox */
+    height: 300px;             /* 2. Le damos altura para demostrar el centrado vertical */
+    border: 2px solid #333;
+
+    justify-content: center;   /* 3. Centra en el Eje Principal (Horizontal) */
+    align-items: center;       /* 4. Centra en el Eje Cruzado (Vertical) */
+}
+
+.caja-centrada {
+    padding: 20px;
+    background-color: lightcoral;
+    color: white;
+}
+            </code></pre>
+
+            <h3>✨ Resultado en Vivo:</h3>
+            <p>Al aplicar las cuatro líneas de CSS al contenedor, el elemento queda centrado perfectamente en medio de la caja. Puedes verlo en el siguiente recuadro:</p>
+            
+            <div class="contenedor-padre">
+                <div class="caja-centrada">
+                    Centrado Perfecto
+                </div>
+            </div>
+            
+            <p>Dominar <code>display: flex;</code>, <code>justify-content</code> y <code>align-items</code> te permitirá resolver el **90%** de los problemas de diseño y maquetación web.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fin de la sección de CSS Flexbox.</p>
+    </footer>
+
+</body>
+</html>

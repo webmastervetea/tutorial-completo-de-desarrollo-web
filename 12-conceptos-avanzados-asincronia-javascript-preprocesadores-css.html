@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - Conceptos Avanzados: Asincronía y Preprocesadores</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        /* Estilos para las tablas */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 15px auto;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+        
+        pre {
+            background-color: #eee;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. 🌐 JavaScript Avanzado: Asincronía y APIs</h2>
+            <p>La **asincronía** es un concepto esencial en JavaScript. Permite que el navegador **continúe ejecutando otras tareas** mientras espera que las tareas lentas (como cargar datos de un servidor) finalicen, evitando que la página se congele.</p>
+            
+            <h3>A. El Problema: Bloqueo Síncrono</h3>
+            <p>Si una tarea es síncrona, el navegador espera quieto a que termine antes de pasar a la siguiente, bloqueando la interfaz.</p>
+            
+            <h3>B. Solución JS: <code>Promises</code> y <code>async/await</code></h3>
+            <p>Las **Promises** representan el resultado (éxito o falla) de una operación asíncrona. La sintaxis moderna y más legible para manejarlas es **<code>async/await</code>**.</p>
+            
+            <p><strong>Ejemplo de uso de <code>async/await</code> para pedir datos (<code>fetch</code>):</strong></p>
+            <pre><code>
+// La función declarada como 'async' indica que contendrá operaciones asíncronas
+async function obtenerDatosDeUsuario() {
+    try {
+        // 'await' pausa la ejecución hasta que 'fetch' (la promesa) se resuelva.
+        // Esto evita que la siguiente línea se ejecute antes de tener la respuesta.
+        const respuesta = await fetch('https://api.ejemplo.com/usuario');
+        
+        // Esperamos a que la respuesta se convierta en JSON
+        const datos = await respuesta.json();
+        
+        console.log("Nombre de usuario:", datos.nombre);
+        
+    } catch (error) {
+        // Manejo de errores si la promesa falla (ej. si la URL no funciona)
+        console.error("Hubo un error al obtener los datos:", error);
+    }
+}
+
+obtenerDatosDeUsuario();
+            </code></pre>
+            <ul>
+                <li><strong><code>async</code></strong>: Se pone delante de la función que ejecutará tareas asíncronas.</li>
+                <li><strong><code>await</code></strong>: Solo puede usarse dentro de una función <code>async</code>. Detiene temporalmente la ejecución del código en ese punto hasta que la promesa se resuelva.</li>
+                <li><strong><code>fetch()</code></strong>: Es la función estándar de JS para hacer peticiones de red (obtener datos de una API).</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>2. 🚀 Preprocesadores CSS (SCSS/SASS)</h2>
+            <p>Los preprocesadores son lenguajes que se extienden sobre CSS, añadiéndole funcionalidades de programación como variables, anidamiento y funciones. El código que escribes (ej. SCSS) debe ser **compilado** por una herramienta externa para generar un archivo CSS estándar que el navegador pueda entender.</p>
+            
+            <h3>A. Variables</h3>
+            <p>Permiten definir valores que se pueden reutilizar a lo largo de la hoja de estilos, facilitando los cambios globales.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código SCSS (Archivo .scss)</th>
+                        <th>CSS Compilado (Archivo .css)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <pre><code>
+$color-principal: #007bff;
+$fuente-base: 16px;
+
+.boton {
+  background-color: $color-principal;
+  font-size: $fuente-base;
+}
+
+.enlace {
+  color: $color-principal;
+  font-size: $fuente-base;
+}
+                            </code></pre>
+                        </td>
+                        <td>
+                            <pre><code>
+.boton {
+  background-color: #007bff;
+  font-size: 16px;
+}
+
+.enlace {
+  color: #007bff;
+  font-size: 16px;
+}
+                            </code></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>B. Anidamiento (Nesting)</h3>
+            <p>Permite escribir selectores CSS dentro de otros, reflejando la jerarquía de HTML. Esto mejora la legibilidad y evita la repetición de selectores padres (como <code>.navbar</code>).</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código SCSS (Archivo .scss)</th>
+                        <th>CSS Compilado (Archivo .css)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <pre><code>
+.navbar {
+  background-color: #333;
+
+  ul { // Aplica a ul dentro de .navbar
+    margin: 0;
+    
+    li { // Aplica a li dentro de .navbar ul
+        list-style: none;
+    }
+  }
+}
+                            </code></pre>
+                        </td>
+                        <td>
+                            <pre><code>
+.navbar {
+  background-color: #333;
+}
+.navbar ul {
+  margin: 0;
+}
+.navbar ul li {
+  list-style: none;
+}
+                            </code></pre>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p style="margin-top: 50px; text-align: center;">Fin del Tutorial Completo de Desarrollo Web.</p>
+    </footer>
+
+</body>
+</html>

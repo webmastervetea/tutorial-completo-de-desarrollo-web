@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - Barra de Navegación con Flexbox</title>
+    
+    <style>
+        /* 1. Estilos de Reseteo Básico */
+        body {
+            margin: 0; /* Elimina el margen por defecto del cuerpo */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        header h1 {
+            margin-left: 30px;
+            color: #333;
+        }
+
+        /* 2. EL CONTENEDOR FLEXIBLE (.navbar) */
+        .navbar {
+            background-color: #333; /* Fondo oscuro */
+            padding: 15px 30px;
+            color: white;
+            
+            /* ¡LA CLAVE DE FLEXBOX! */
+            display: flex; 
+            
+            /* Distribuye los elementos en el Eje Principal (horizontal): 
+               Logo a la izquierda y enlaces a la derecha */
+            justify-content: space-between; 
+            
+            /* Centra los elementos a lo largo del Eje Cruzado (vertical) */
+            align-items: center; 
+        }
+
+        /* 3. Estilos de la Lista de Enlaces (UL) */
+        .nav-links {
+            list-style: none; /* Elimina las viñetas */
+            margin: 0;
+            padding: 0;
+            
+            /* Aplicamos Flexbox a la lista para que los LI se alineen horizontalmente */
+            display: flex;
+        }
+
+        /* 4. Estilos de cada Elemento de Lista (LI) */
+        .nav-links li {
+            margin-left: 20px; /* Espacio entre cada enlace */
+        }
+
+        /* 5. Estilos de los Enlaces (A) */
+        .nav-links a {
+            color: white;
+            text-decoration: none; /* Elimina el subrayado */
+            padding: 5px 10px;
+            /* Añadir transición para el efecto hover */
+            transition: background-color 0.2s ease; 
+        }
+
+        /* 6. Efecto Hover para Interactividad */
+        .nav-links a:hover {
+            background-color: #555;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p style="margin-left: 30px;"><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>🧭 Barra de Navegación con Flexbox</h2>
+            <p>Usaremos la etiqueta semántica <code>&lt;nav&gt;</code> como nuestro **Contenedor Flexible** y una lista desordenada <code>&lt;ul&gt;</code> para los enlaces.</p>
+
+            <nav class="navbar">
+                <div class="logo">Mi Marca</div>
+                
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            
+            <h3 style="margin-left: 30px;">💡 Análisis del Código Flexbox</h3>
+            <p style="margin-left: 30px;">El corazón del diseño se encuentra en el estilo aplicado a <code>.navbar</code>:</p>
+            <ul style="margin-left: 30px;">
+                <li><code>display: flex;</code>: Convierte el <code>&lt;nav&gt;</code> en un contenedor flexible.</li>
+                <li><code>justify-content: space-between;</code>: Esto toma los dos elementos hijos (el <code>.logo</code> y la lista <code>.nav-links</code>) y los empuja a los **extremos opuestos** del contenedor.</li>
+                <li><code>align-items: center;</code>: Asegura que el logotipo y la lista de enlaces estén perfectamente **centrados verticalmente** uno con respecto al otro.</li>
+            </ul>
+            <p style="margin-left: 30px;">Adicionalmente, se aplica <code>display: flex;</code> a la lista (<code>.nav-links</code>) para que sus elementos hijos (<code>&lt;li&gt;</code>) se coloquen también en línea recta, uno al lado del otro.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p style="margin-left: 30px; margin-top: 50px;">Fin de la sección del Proyecto Navbar Flexbox.</p>
+    </footer>
+
+</body>
+</html>

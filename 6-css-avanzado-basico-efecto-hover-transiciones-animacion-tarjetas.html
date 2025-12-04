@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Avanzado Básico - Hover y Transiciones</title>
+    
+    <style>
+        /* Estilos base de la tarjeta de perfil (del archivo 5) */
+        body {
+            background-color: #f0f2f5; 
+            font-family: 'Helvetica Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Asegura que el contenido esté bien alineado */
+        }
+        
+        .tarjeta-perfil {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+            text-align: center;
+            width: 300px;
+            
+            /* 4. Transición (¡Crucial para la suavidad!)*/
+            /* Añadimos esta regla al estilo principal para que los cambios sean suaves */
+            transition: all 0.3s ease; 
+        }
+
+        .foto-perfil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #007bff;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #007bff; 
+            font-size: 1em;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .descripcion {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+
+        .contacto {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        /* Estilos para que la tarjeta reaccione al pasar el ratón */
+        .tarjeta-perfil:hover {
+            /* 1. Cambio de Sombra: Hace que parezca que la tarjeta se levanta */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            
+            /* 2. Transformación: Mueve ligeramente la tarjeta hacia arriba */
+            transform: translateY(-5px);
+            
+            /* 3. Cambio de Fondo (Opcional): Un sutil cambio de color */
+            background-color: #f7f7f7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>✨ Efecto "Hover" en CSS y Transiciones</h2>
+
+            <p>La pseudoclase **`:hover`** permite aplicar estilos a un elemento **solamente** cuando el cursor del ratón está posicionado sobre él. Es el motor detrás de la mayoría de los efectos visuales dinámicos en la web.</p>
+
+            <hr>
+
+            <h3>Paso 1: Modificar el CSS para la Interacción</h3>
+            <p>Añadimos reglas de `:hover` para que la tarjeta de perfil dé una sensación de "elevación" al pasar el ratón por encima.</p>
+
+            <h4>Código de Interacción CSS:</h4>
+            <pre><code>
+/* Estilos para que la tarjeta reaccione al pasar el ratón */
+.tarjeta-perfil:hover {
+    /* 1. Cambio de Sombra: Hace que parezca que la tarjeta se levanta */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    
+    /* 2. Transformación: Mueve ligeramente la tarjeta hacia arriba */
+    transform: translateY(-5px); 
+    
+    /* 3. Cambio de Fondo (Opcional): Un sutil cambio de color */
+    background-color: #f7f7f7; 
+}
+
+/* 4. Transición (¡Crucial para la suavidad!) */
+.tarjeta-perfil {
+    /* Los cambios ocurrirán de forma suave durante 0.3 segundos */
+    transition: all 0.3s ease;
+}
+            </code></pre>
+            
+            <h3>💡 Explicación de las Propiedades Clave:</h3>
+            <ul>
+                <li>**`box-shadow`**: Al pasar el ratón, la sombra se hace más grande y oscura, creando un efecto visual de que la tarjeta se ha "elevado" de la página.</li>
+                <li>**`transform: translateY(-5px)`**: Mueve el elemento 5 píxeles hacia arriba en el eje Y.</li>
+                <li>**`transition: all 0.3s ease`**: Esta es la clave para la suavidad. Sin esta línea, los cambios de sombra y posición ocurrirían de forma inmediata ("un salto"). La propiedad `transition` indica al navegador que haga la transición de cualquier propiedad (`all`) de forma suave durante **0.3 segundos**.</li>
+            </ul>
+        </section>
+        
+        <hr>
+
+        <section>
+            <h2>🔁 Resultado Final y Ejemplificación</h2>
+            <p>Este es el HTML de la tarjeta de perfil. ¡Pasa el cursor sobre ella para ver el efecto en acción!  </p>
+            
+            <div class="tarjeta-perfil">
+                
+                <img src="https://via.placeholder.com/150" alt="Foto de perfil del usuario" class="foto-perfil">
+                
+                <h1>Ana García</h1>
+                
+                <h2>Desarrolladora Web Jr.</h2>
+                
+                <p class="descripcion">
+                    Apasionada por el diseño web y las interfaces de usuario. 
+                    Me encanta aprender nuevas tecnologías y crear soluciones accesibles.
+                </p>
+                
+                <p class="contacto">
+                    📧 ana.garcia@email.com
+                </p>
+            </div>
+            
+            <p style="margin-top: 30px;">Este ejemplo ilustra cómo CSS se usa no solo para la estética, sino también para la **interacción**, mejorando la experiencia del usuario.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fin de la sección de CSS Avanzado Básico.</p>
+    </footer>
+
+</body>
+</html>

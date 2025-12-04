@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Responsivo y Depuración</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contenedor-responsivo {
+            display: flex; /* Habilitamos Flexbox para las columnas */
+            flex-wrap: wrap; /* Permite que las columnas salten de línea en pantallas pequeñas */
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .columna {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            
+            /* ESTILO POR DEFECTO (Escritorio / Pantallas Grandes) */
+            /* Cada columna ocupa aproximadamente un tercio del ancho */
+            flex: 1; 
+            min-width: 300px; /* Ancho mínimo para que no se hagan demasiado pequeñas */
+        }
+        
+        /* ----------------------------------------------------- */
+        /* MEDIA QUERIES (Puntos de Interrupción) */
+        /* ----------------------------------------------------- */
+        
+        /* Estilos para Pantallas Medianas (Tablets) */
+        /* Se aplica cuando el ancho de la pantalla es de 768px o menos */
+        @media (max-width: 768px) {
+            .columna {
+                /* Hace que cada columna ocupe el 48% del ancho (2 columnas por fila) */
+                flex: 0 0 48%; 
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Estilos para Pantallas Pequeñas (Móviles) */
+        /* Se aplica cuando el ancho de la pantalla es de 576px o menos */
+        @media (max-width: 576px) {
+            .columna {
+                /* Hace que cada columna ocupe el 100% del ancho (1 columna por fila) */
+                flex: 0 0 100%; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial: Diseño Responsivo y DevTools</h1>
+        <p>Ajusta el ancho de tu navegador para ver la magia de las Media Queries.</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>📱 1. Diseño Web Responsivo (`Responsive Design`)</h2>
+            <p>Es la práctica de crear sitios web que se **adaptan automáticamente** al tamaño de la pantalla (escritorio, tablet o móvil), gracias a dos herramientas clave:</p>
+            
+            <h3>A. La Meta Etiqueta `viewport` (El Fundamento)</h3>
+            <pre><code>
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            </code></pre>
+            <p>Esta etiqueta debe ir en el <code>&lt;head&gt;</code> y es **obligatoria** para decirle a los navegadores móviles que deben usar el ancho real del dispositivo en lugar de un ancho por defecto grande.</p>
+
+            <h3>B. Media Queries (El Cerebro)</h3>
+            <p>Son reglas de CSS que permiten aplicar estilos **solo si se cumplen ciertas condiciones**, como el ancho máximo de la pantalla.</p>
+
+            <h4>Ejemplo de Media Query en la práctica:</h4>
+            <pre><code>
+/* Cuando la pantalla tiene un ancho máximo de 576px (Móvil) */
+@media (max-width: 576px) {
+    .columna {
+        /* ¡Se rompe el Flexbox! Ahora cada columna ocupa todo el ancho */
+        flex: 0 0 100%; 
+    }
+}
+            </code></pre>
+            
+            <h3>✨ Demostración Responsiva</h3>
+            <p>El siguiente contenido se comporta así:</p>
+            <ul>
+                <li>**Escritorio (>768px):** 3 columnas por fila.</li>
+                <li>**Tablet (<768px):** 2 columnas por fila.</li>
+                <li>**Móvil (<576px):** 1 columna por fila.</li>
+            </ul>
+
+            <div class="contenedor-responsivo">
+                <div class="columna">
+                    <h3>Columna 1</h3>
+                    <p>Contenido principal. El <code>flex: 1;</code> asegura que crezca y se distribuya uniformemente en pantallas grandes.</p>
+                </div>
+                <div class="columna">
+                    <h3>Columna 2</h3>
+                    <p>Este contenido saltará a una nueva línea cuando el ancho del navegador sea muy pequeño.</p>
+                </div>
+                <div class="columna">
+                    <h3>Columna 3</h3>
+                    <p>En el móvil, estas tres cajas se apilarán verticalmente para facilitar la lectura.</p>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>🛠️ 2. Herramientas de Depuración (DevTools)</h2>
+            <p>Las Herramientas de Desarrollador (accesibles con **F12** o **Ctrl+Shift+I** en Chrome/Firefox) son cruciales para el desarrollo y depuración. </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Panel (Tab)</th>
+                        <th>Propósito</th>
+                        <th>Uso Clave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>**Elements** (Elementos)</td>
+                        <td>Inspeccionar y modificar **HTML y CSS** en tiempo real.</td>
+                        <td>Ver qué reglas CSS se aplican a un elemento, de dónde vienen, y probar cambios de estilo.</td>
+                    </tr>
+                    <tr>
+                        <td>**Console** (Consola)</td>
+                        <td>Depurar **JavaScript** y ver mensajes de error.</td>
+                        <td>Muestra mensajes de <code>console.log()</code> y reporta errores de JS con su línea de fallo.</td>
+                    </tr>
+                    <tr>
+                        <td>**Sources** (Fuentes)</td>
+                        <td>Depurar código **JavaScript línea por línea**.</td>
+                        <td>Permite establecer *breakpoints* para detener la ejecución y examinar los valores de las variables en un momento exacto.</td>
+                    </tr>
+                    <tr>
+                        <td>**Network** (Red)</td>
+                        <td>Monitorear solicitudes de red (API, imágenes, etc.).</td>
+                        <td>Esencial para la **asincronía**. Muestra si una solicitud <code>fetch</code> falló (código 404/500), o si fue exitosa (código 200) y el tiempo que tardó.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p style="margin-top: 50px; text-align: center;">Fin de la Lección y del Tutorial Completo de Desarrollo Web.</p>
+    </footer>
+
+</body>
+</html>

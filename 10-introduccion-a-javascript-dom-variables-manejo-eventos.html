@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - Atributos HTML y Tablas</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 10px;
+        }
+
+        /* Estilos para el ejemplo de Atributo 'style' */
+        .estilo-en-linea {
+            color: blue; 
+            background-color: yellow;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        /* Estilos para el ejemplo de Atributo 'class' */
+        .alerta {
+            color: white;
+            background-color: #dc3545; /* Rojo */
+            padding: 5px 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+            font-weight: bold;
+        }
+
+        /* Estilos para la tabla */
+        table {
+            width: 80%;
+            border-collapse: collapse; /* Combina los bordes de las celdas */
+            margin: 20px auto; /* Centra la tabla y da margen */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Color de fondo para filas pares */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>🏷️ ¿Qué son los Atributos en HTML?</h2>
+            <p>Los atributos proporcionan **información adicional** sobre un elemento HTML. Siempre se especifican en la **etiqueta de apertura** y generalmente vienen en pares de **nombre/valor** (ej: <code>nombre="valor"</code>).</p>
+        </section>
+
+        <section>
+            <h3>1. El Atributo <code>id</code> (Identificador)</h3>
+            <p>Se usa para dar un **nombre único** a un elemento, crucial para CSS y JavaScript. Solo puede haber **un** elemento con ese <code>id</code> en toda la página.</p>
+            
+            <h4>Ejemplo de Código:</h4>
+            <pre><code>
+&lt;nav id="menu-principal"&gt;
+    &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+    &lt;a href="#contacto"&gt;Contacto&lt;/a&gt;
+&lt;/nav&gt;
+            </code></pre>
+        </section>
+
+        <section>
+            <h3>2. El Atributo <code>class</code> (Clase)</h3>
+            <p>Se usa para dar un **nombre de grupo** a uno o más elementos. Es la forma más común de aplicar estilos CSS, ya que permite aplicar el **mismo** estilo a múltiples elementos.</p>
+            
+            <h4>Ejemplo de Código y Demostración:</h4>
+            <pre><code>
+&lt;p class="alerta"&gt;¡Atención! Hay un error en el formulario.&lt;/p&gt;
+&lt;p&gt;Este es un párrafo normal.&lt;/p&gt;
+&lt;p class="alerta"&gt;Recuerda completar todos los campos.&lt;/p&gt;
+            </code></pre>
+            <p class="alerta">¡Atención! Hay un error en el formulario.</p>
+            <p>Este es un párrafo normal.</p>
+            <p class="alerta">Recuerda completar todos los campos.</p>
+        </section>
+
+        <section>
+            <h3>3. El Atributo <code>style</code> (Estilo en Línea)</h3>
+            <p>Se usa para aplicar **estilos CSS directamente** a un solo elemento HTML. Es útil para pruebas o excepciones, pero **no** es la práctica recomendada para el diseño general.</p>
+
+            <h4>Ejemplo de Código y Demostración:</h4>
+            <pre><code>
+&lt;h2 style="color: blue; background-color: yellow;"&gt;Soy un título con estilo en línea&lt;/h2&gt;
+            </code></pre>
+            <h2 class="estilo-en-linea">Soy un título con estilo en línea</h2>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>📊 La Etiqueta <code>&lt;table&gt;</code> (Tablas)</h2>
+            <p>Las tablas HTML se usan para mostrar **datos tabulares** (filas y columnas).</p>
+
+            <h3>Estructura Básica de una Tabla</h3>
+            <table style="width: 100%; margin: 15px 0;">
+                <thead>
+                    <tr>
+                        <th>Etiqueta</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;table&gt;</code></td>
+                        <td>Tabla</td>
+                        <td>El contenedor principal de toda la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tr&gt;</code></td>
+                        <td>Fila de Tabla</td>
+                        <td>Define una **fila** dentro de la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;th&gt;</code></td>
+                        <td>Encabezado de Tabla</td>
+                        <td>Define una **celda de encabezado** (negrita y centrado). Va dentro de un <code>&lt;tr&gt;</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;td&gt;</code></td>
+                        <td>Dato de Tabla</td>
+                        <td>Define una **celda de datos** estándar. Va dentro de un <code>&lt;tr&gt;</code>.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Ejemplo de Código y Resultado:</h3>
+            <pre><code>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Producto&lt;/th&gt;
+        &lt;th&gt;Precio&lt;/th&gt;
+        &lt;th&gt;Stock&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Laptop X&lt;/td&gt;
+        &lt;td&gt;$1200&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monitor Z&lt;/td&gt;
+        &lt;td&gt;$350&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code></pre>
+
+            <table>
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                </tr>
+                <tr>
+                    <td>Laptop X</td>
+                    <td>$1200</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Monitor Z</td>
+                    <td>$350</td>
+                    <td>28</td>
+                </tr>
+            </table>
+
+            <h3>🧑‍💻 Consejos Adicionales para Tablas</h3>
+            <ul>
+                <li>**<code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code>**: Etiquetas semánticas para organizar la tabla en cabeza, cuerpo y pie.</li>
+                <li>**<code>rowspan</code> y <code>colspan</code>**: Atributos que permiten que una celda se extienda a través de varias filas o columnas.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p style="margin-top: 50px; text-align: center;">Fin de la sección de Atributos y Tablas.</p>
+    </footer>
+
+</body>
+</html>

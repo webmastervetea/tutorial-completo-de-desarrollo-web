@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo de Desarrollo Web - Atributos y Tablas</title>
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>🏷️ ¿Qué son los Atributos en HTML?</h2>
+            <p>Los atributos proporcionan <strong>información adicional</strong> sobre un elemento HTML. Siempre se especifican en la <strong>etiqueta de apertura</strong> y generalmente vienen en pares de <strong>nombre/valor</strong> así: <code>nombre="valor"</code>.</p>
+
+            <hr>
+
+            <article>
+                <h3>1. El Atributo <code>id</code> (Identificador)</h3>
+                <p>El atributo <code>id</code> se usa para dar un <strong>nombre único</strong> a un elemento.</p>
+                <ul>
+                    <li><strong>Propósito:</strong> Es crucial para CSS (para aplicar estilos muy específicos) y JavaScript (para manipular ese elemento en concreto).</li>
+                    <li><strong>Regla:</strong> Solo puede haber <strong>un</strong> elemento con ese <code>id</code> en toda la página.</li>
+                </ul>
+
+                <h4>Ejemplo de <code>id</code>:</h4>
+                <pre><code>
+&lt;nav id="menu-principal"&gt;
+    &lt;a href="#inicio"&gt;Inicio&lt;/a&gt;
+    &lt;a href="#contacto"&gt;Contacto&lt;/a&gt;
+&lt;/nav&gt;
+                </code></pre>
+            </article>
+
+            <article>
+                <h3>2. El Atributo <code>class</code> (Clase)</h3>
+                <p>El atributo <code>class</code> se usa para dar un <strong>nombre de grupo</strong> a uno o más elementos.</p>
+                <ul>
+                    <li><strong>Propósito:</strong> Es la forma más común de aplicar estilos CSS, ya que permite aplicar el <strong>mismo</strong> estilo a múltiples elementos.</li>
+                    <li><strong>Regla:</strong> Múltiples elementos pueden tener la misma clase, y un elemento puede tener múltiples clases (separadas por espacios).</li>
+                </ul>
+
+                <h4>Ejemplo de <code>class</code>:</h4>
+                <pre><code>
+&lt;p class="alerta"&gt;¡Atención! Hay un error en el formulario.&lt;/p&gt;
+&lt;p&gt;Este es un párrafo normal.&lt;/p&gt;
+&lt;p class="alerta"&gt;Recuerda completar todos los campos.&lt;/p&gt;
+                </code></pre>
+            </article>
+
+            <article>
+                <h3>3. El Atributo <code>style</code> (Estilo en Línea)</h3>
+                <p>El atributo <code>style</code> se usa para aplicar <strong>estilos CSS directamente</strong> a un solo elemento HTML.</p>
+                <ul>
+                    <li><strong>Propósito:</strong> Se usa para aplicar un estilo rápido y muy específico. <strong>No</strong> es la práctica recomendada para el diseño general (para eso es el archivo CSS externo), pero es útil para pruebas o excepciones.</li>
+                </ul>
+
+                <h4>Ejemplo de <code>style</code>:</h4>
+                <pre><code>
+&lt;h2 style="color: blue; background-color: yellow;"&gt;Soy un título con estilo en línea&lt;/h2&gt;
+                </code></pre>
+            </article>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>📊 La Etiqueta <code>&lt;table&gt;</code> (Tablas)</h2>
+            <p>Las tablas HTML se usan para mostrar <strong>datos tabulares</strong> (filas y columnas).</p>
+
+            <h3>Estructura Básica de una Tabla</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Etiqueta</th>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>&lt;table&gt;</code></td>
+                        <td>Tabla</td>
+                        <td>El contenedor principal de toda la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tr&gt;</code></td>
+                        <td>Fila de Tabla</td>
+                        <td>Define una <strong>fila</strong> dentro de la tabla.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;th&gt;</code></td>
+                        <td>Encabezado de Tabla</td>
+                        <td>Define una <strong>celda de encabezado</strong> (generalmente se muestra en negrita y centrado). Va dentro de un <code>&lt;tr&gt;</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;td&gt;</code></td>
+                        <td>Dato de Tabla</td>
+                        <td>Define una <strong>celda de datos</strong> estándar. Va dentro de un <code>&lt;tr&gt;</code>.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4>Ejemplo de Código de Tabla:</h4>
+            <pre><code>
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Producto&lt;/th&gt;
+        &lt;th&gt;Precio&lt;/th&gt;
+        &lt;th&gt;Stock&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Laptop X&lt;/td&gt;
+        &lt;td&gt;$1200&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Monitor Z&lt;/td&gt;
+        &lt;td&gt;$350&lt;/td&gt;
+        &lt;td&gt;28&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+            </code></pre>
+
+            <h3>🧑‍💻 Consejos Adicionales para Tablas</h3>
+            <ul>
+                <li><strong><code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tfoot&gt;</code></strong>: Estas etiquetas se usan para organizar la tabla semánticamente en una <strong>cabeza</strong> (encabezados de columna), un <strong>cuerpo</strong> (los datos) y un <strong>pie</strong> (totales o notas). Esto es útil para accesibilidad y CSS.</li>
+                <li><strong><code>rowspan</code> y <code>colspan</code></strong>: Atributos que permiten que una celda se extienda a través de varias filas (<code>rowspan</code>) o varias columnas (<code>colspan</code>).</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Fin de la sección de Atributos y Tablas.</p>
+    </footer>
+
+</body>
+</html>

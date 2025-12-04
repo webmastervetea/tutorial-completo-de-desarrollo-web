@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - Tarjeta de Perfil Estilizada</title>
+    
+    <style>
+        /* 1. Estilos Globales para el cuerpo */
+        body {
+            background-color: #f0f2f5; /* Fondo gris claro */
+            font-family: 'Helvetica Neue', sans-serif;
+            display: flex; /* Centra el contenido horizontal y verticalmente */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+            margin: 0;
+        }
+
+        /* 2. Estilos para la Tarjeta de Perfil */
+        .tarjeta-perfil {
+            background-color: white; /* Fondo blanco para la tarjeta */
+            padding: 30px;
+            border-radius: 12px; /* Esquinas redondeadas */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para darle profundidad */
+            text-align: center;
+            width: 300px;
+        }
+
+        /* 3. Estilos para la Imagen */
+        .foto-perfil {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%; /* Esto hace que la imagen sea perfectamente circular */
+            border: 4px solid #007bff; /* Borde azul para destacar */
+            margin-bottom: 20px;
+        }
+
+        /* 4. Estilos para los Textos */
+        h1 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: #007bff; /* Título secundario en color azul */
+            font-size: 1em;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .descripcion {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.9em;
+        }
+
+        .contacto {
+            margin-top: 25px;
+            padding-top: 15px;
+            border-top: 1px dashed #ccc; /* Línea de separación */
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+    
+</head>
+<body>
+
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web.</h1>
+        <p><a href="https://www.linkedin.com/in/oscarlizarragag/" target="_blank">Soporte</a></p>
+    </header>
+
+    <main>
+        <section>
+            <h2>💻 El Ejemplo Práctico: Tarjeta de Perfil</h2>
+            
+            <h3>Paso 1: Estructura HTML (<code>perfil.html</code>)</h3>
+            <p>Usaremos la etiqueta <code>&lt;div&gt;</code> con la clase <code>tarjeta-perfil</code> para crear un contenedor principal, y clases específicas para la imagen y los textos para aplicar los estilos.</p>
+            
+            <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Tarjeta de Perfil&lt;/title&gt;
+    
+    &lt;link rel="stylesheet" href="estilos.css"&gt;
+    
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="tarjeta-perfil"&gt;
+        
+        &lt;img src="https://via.placeholder.com/150" alt="Foto de perfil del usuario" class="foto-perfil"&gt;
+        
+        &lt;h1&gt;Ana García&lt;/h1&gt;
+        
+        &lt;h2&gt;Desarrolladora Web Jr.&lt;/h2&gt;
+        
+        &lt;p class="descripcion"&gt;
+            Apasionada por el diseño web y las interfaces de usuario. 
+            Me encanta aprender nuevas tecnologías y crear soluciones accesibles.
+        &lt;/p&gt;
+        
+        &lt;p class="contacto"&gt;
+            📧 ana.garcia@email.com
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            
+            <hr>
+
+            <h3>Paso 2: Estilos CSS (<code>estilos.css</code>)</h3>
+            <p>Los estilos CSS definen la apariencia de los elementos. Por ejemplo, el estilo para la imagen la hace perfectamente circular usando <code>border-radius: 50%</code> y añade un borde azul para destacar.</p>
+
+            <pre><code>
+/* 1. Estilos Globales para el cuerpo */
+body {
+    background-color: #f0f2f5; 
+    font-family: 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 2. Estilos para la Tarjeta de Perfil */
+.tarjeta-perfil {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+    width: 300px;
+}
+
+/* 3. Estilos para la Imagen */
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%; /* Circular */
+    border: 4px solid #007bff; /* Borde azul */
+    margin-bottom: 20px;
+}
+
+/* 4. Estilos para los Textos */
+h1 {
+    color: #333;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: #007bff; 
+    font-size: 1em;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.descripcion {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.9em;
+}
+
+.contacto {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc; 
+    color: #007bff;
+    font-weight: bold;
+}
+            </code></pre>
+
+            <hr>
+
+            <h3>✨ Resultado Final</h3>
+            <p>La estructura simple de HTML se transforma en una tarjeta centrada con esquinas redondeadas, una sombra suave, una foto circular con borde azul y colores definidos para los textos.</p>
+            
+            <ul>
+                <li>**HTML** (con la clase `tarjeta-perfil` y la clase `foto-perfil`) **define la estructura** y el propósito del contenido.</li>
+                <li>**CSS** (`estilos.css`) **define la apariencia** (tamaño, color, posición, bordes, sombras) de esos elementos estructurales.</li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Fin del Proyecto Práctico.</p>
+    </footer>
+
+</body>
+</html>
