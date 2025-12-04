@@ -8,7 +8,7 @@ Incluye secciones clave sobre la organización de proyectos, el diseño responsi
 Tienes el tutorial en formato  .md (GitHub) o .html (web)
 ### Temario
 
-#### 1 ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico [[HTML]()] [[MD]()]
+#### 1 ⚙️ HTML5 Básico: Estructura, Etiquetas y Fundamentos Semántico [[HTML](https://github.com/webmastervetea/tutorial-completo-de-desarrollo-web/blob/main/1-html-basico-estructura-etiquetas-y-fundamentos.html)] [[MD](https://github.com/webmastervetea/tutorial-completo-de-desarrollo-web/blob/main/1-html-basico-estructura-etiquetas-y-fundamentos.md)]
 #### 2 🎨 Enlazando CSS a tu HTML [[HTML]()] [[MD]()]
 #### 3 🏷️ ¿Qué son los Atributos en HTML? [[HTML]()] [[MD]()]
 #### 4 📝 Formularios (`<form>`) [[HTML]()] [[MD]()]
