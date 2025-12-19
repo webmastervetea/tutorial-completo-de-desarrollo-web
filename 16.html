@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: SEO Técnico para Desarrolladores</title>
+    <style>
+        :root {
+            --primary: #2980b9;
+            --secondary: #2c3e50;
+            --bg: #f9f9f9;
+            --text: #333;
+            --code-bg: #272822;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg);
+        }
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: var(--secondary);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        h1, h2, h3 {
+            color: var(--secondary);
+        }
+        header h1 { color: white; margin: 0; }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        pre {
+            background: var(--code-bg);
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+        .tip {
+            background-color: #e1f5fe;
+            border-left: 5px solid #03a9f4;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        hr { border: 0; border-top: 1px solid #eee; margin: 40px 0; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Tutorial Completo de Desarrollo Web</h1>
+    <p>SEO Técnico: Etiquetas Meta y Semántica Avanzada</p>
+</header>
+
+<main class="container">
+    <section>
+        <h2>1. El Poder de la Semántica HTML5</h2>
+        <p>Google no "ve" tu web como un usuario; la "lee" como un árbol de nodos. Usar los elementos correctos ayuda a Google a identificar qué partes de tu código son ruido y cuáles son el contenido principal.</p>
+        
+                
+        <h3>Estructura de Prioridad</h3>
+        <ul>
+            <li><code>&lt;main&gt;</code>: El núcleo del contenido; solo uno por documento.</li>
+            <li><code>&lt;article&gt;</code>: Contenido con sentido propio (posts, noticias).</li>
+            <li><code>&lt;section&gt;</code>: Agrupa contenido relacionado.</li>
+            <li><code>&lt;aside&gt;</code>: Contenido tangencial (barras laterales).</li>
+            <li><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>: Jerarquía lógica; solo un <code>&lt;h1&gt;</code> por página.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>2. Etiquetas Meta Esenciales (Head SEO)</h2>
+        <p>Las etiquetas meta sirven para el buscador y para controlar la visualización en redes sociales y navegadores.</p>
+        <pre><code>&lt;head&gt;
+  &lt;title&gt;Optimización SEO para Desarrolladores | Guía Técnica&lt;/title&gt;
+  &lt;meta name="description" content="Aprende a mejorar el posicionamiento..."&gt;
+  &lt;meta name="robots" content="index, follow"&gt;
+  &lt;link rel="canonical" href="https://tusitio.com/seo-tecnico"&gt;
+&lt;/head&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>3. Rich Snippets con JSON-LD (Datos Estructurados)</h2>
+        <p>Los datos estructurados le dicen a Google exactamente qué está viendo: un producto, receta o evento. <strong>JSON-LD</strong> es el formato recomendado.</p>
+        
+        <pre><code>&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SEO Técnico para Desarrolladores",
+  "author": { "@type": "Person", "name": "Tu Nombre" },
+  "datePublished": "2024-05-20"
+}
+&lt;/script&gt;</code></pre>
+        <div class="tip">
+            <strong>Tip:</strong> Puedes validar tu código en la <a href="https://search.google.com/test/rich-results" target="_blank">Prueba de resultados enriquecidos de Google</a>.
+        </div>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>4. Open Graph y Twitter Cards</h2>
+        <p>Esenciales para que tu web se vea profesional al ser compartida en redes sociales como WhatsApp, LinkedIn o X.</p>
+        <pre><code>&lt;meta property="og:title" content="SEO Técnico Avanzado"&gt;
+&lt;meta property="og:image" content="https://tusitio.com/og-image.jpg"&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;</code></pre>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>5. Accesibilidad como Factor de Ranking</h2>
+        <p>Google premia los sitios accesibles, ya que suelen estar mejor estructurados.</p>
+        <ol>
+            <li><strong>Atributo <code>alt</code>:</strong> Ayuda a Google Images a entender el contenido.</li>
+            <li><strong>Atributos <code>aria-label</code>:</strong> Da contexto semántico a botones sin texto.</li>
+            <li><strong>Idioma:</strong> Declara el idioma en la raíz: <code>&lt;html lang="es"&gt;</code>.</li>
+        </ol>
+    </section>
+
+    <section>
+        <h2>Resumen de Implementación</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Elemento</th>
+                    <th>Propósito</th>
+                    <th>Impacto SEO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>H1 - H6</strong></td>
+                    <td>Jerarquía de información.</td>
+                    <td>Alto.</td>
+                </tr>
+                <tr>
+                    <td><strong>Canonical</strong></td>
+                    <td>Evitar contenido duplicado.</td>
+                    <td>Medio.</td>
+                </tr>
+                <tr>
+                    <td><strong>JSON-LD</strong></td>
+                    <td>Resultados enriquecidos.</td>
+                    <td>Alto (CTR).</td>
+                </tr>
+                <tr>
+                    <td><strong>Meta Description</strong></td>
+                    <td>Atraer clics desde el buscador.</td>
+                    <td>Alto (CTR).</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p><em>Siguiente paso: Configurar archivos <strong>sitemap.xml</strong> y <strong>robots.txt</strong> para un rastreo eficiente.</em></p>
+    </footer>
+</main>
+
+</body>
+</html>

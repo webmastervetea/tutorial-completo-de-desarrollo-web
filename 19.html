@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Optimización Web y CSS Avanzado</title>
+    <style>
+        /* 1. Declaración y Ámbito (Scope) de Variables CSS */
+        :root {
+            --primary-color: #3498db;
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --padding-standard: 1.5rem;
+            --accent: #7209b7;
+        }
+
+        /* 2. Creación de Temas (Tema Oscuro) */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f8f9fa;
+            --accent: #4cc9f0;
+            --code-bg: #000000;
+        }
+
+        /* 3. Detección Automática de Preferencia de Color */
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg-color: #121212;
+                --text-color: #f8f9fa;
+            }
+        }
+
+        body {
+            background-color: var(--bg-color); /* */
+            color: var(--text-color); /* */
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--padding-standard);
+            transition: background-color 0.3s ease; /* */
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+        }
+
+        h1, h2 { color: var(--accent); } /* */
+
+        .section-card {
+            background: rgba(128, 128, 128, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.2rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+
+        code { font-family: 'Consolas', monospace; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th { background-color: var(--primary-color); color: white; }
+
+        .btn-theme {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn-theme" onclick="toggleTheme()">Cambiar Tema</button>
+
+<header>
+    <h1>Tutorial Completo de Desarrollo Web</h1>
+    <p>Optimización de Imágenes y Variables CSS</p>
+</header>
+
+<main>
+    <section class="section-card">
+        <h2>1. Optimización de Imágenes de Próxima Generación</h2>
+        <p>Los formatos modernos como <strong>WebP</strong> y <strong>AVIF</strong> ofrecen una compresión superior:</p>
+        <ul>
+            <li><strong>WebP:</strong> 25-34% más ligero que JPEG.</li>
+            <li><strong>AVIF:</strong> Hasta 50% más de ahorro que JPEG.</li>
+        </ul>
+
+        <h3>Implementación con <code>&lt;picture&gt;</code></h3>
+        <pre><code>&lt;picture&gt;
+  &lt;source srcset="imagen.avif" type="image/avif"&gt;
+  &lt;source srcset="imagen.webp" type="image/webp"&gt;
+  &lt;img src="imagen.jpg" alt="Descripción" width="800" height="600"&gt;
+&lt;/picture&gt;</code></pre>
+
+        <h3>Lazy Loading y CLS</h3>
+        <p>Usa <code>loading="lazy"</code> para carga diferida, pero evita usarlo en la imagen principal (LCP). Además, define siempre <code>width</code> y <code>height</code> para prevenir el salto de diseño (CLS).</p>
+    </section>
+
+    <section class="section-card">
+        <h2>2. Variables en CSS (Custom Properties)</h2>
+        <p>Las variables CSS permiten crear temas y mantener un código limpio y escalable.</p>
+
+        <h3>La Regla del "Token"</h3>
+        <p>Evita nombres descriptivos como <code>--rojo</code>; usa nombres basados en la función:</p>
+        <ul>
+            <li><strong>Bien:</strong> <code>--color-brand-primary</code>.</li>
+            <li><strong>Mejor:</strong> <code>--surface-main</code>.</li>
+        </ul>
+
+        <h3>Comparativa de Variables</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>Custom Properties (CSS)</th>
+                    <th>Variables SASS ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tiempo de ejecución</td>
+                    <td>Dinámico (navegador)</td>
+                    <td>Estático (compilado)</td>
+                </tr>
+                <tr>
+                    <td>JavaScript</td>
+                    <td>Accesibles y modificables</td>
+                    <td>Invisibles para JS</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<script>
+    /* 5. Manipulación de Tema con JavaScript */
+    const toggleTheme = () => {
+        const htmlElement = document.documentElement;
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', targetTheme); //
+    };
+</script>
+
+<footer>
+    <p><em>Para más información, audita tu sitio con <strong>Google PageSpeed Insights</strong>.</em></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Animaciones CSS Avanzadas con Keyframes</title>
+    <style>
+        :root {
+            --primary-color: #f06292;
+            --secondary-color: #4a148c;
+            --bg-color: #fafafa;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --code-bg: #263238;
+            --code-text: #eceff1;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        h1 { color: var(--secondary-color); }
+        h2 { color: var(--secondary-color); margin-top: 40px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+        h3 { color: var(--primary-color); }
+
+        code {
+            background-color: #fce4ec;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin: 1.5rem 0;
+        }
+
+        .demo-box {
+            border: 2px dashed var(--primary-color);
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web</h1>
+        <p>Animaciones con Keyframes: Experiencias interactivas sin JavaScript</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. La Anatomía de <code>@keyframes</code></h2>
+            <p>A diferencia de <code>transition</code>, que solo va de un punto A a un punto B, <code>@keyframes</code> permite definir múltiples paradas intermedias.</p>
+            <pre><code>@keyframes flotar {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { transform: translateY(-20px); opacity: 1; }
+  100% { transform: translateY(0); opacity: 0.8; }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>2. Propiedades Esenciales de <code>animation</code></h2>
+            <p>Se utiliza la propiedad abreviada para controlar el flujo de la animación:</p>
+            <ul>
+                <li><strong>name:</strong> Nombre del keyframe.</li>
+                <li><strong>duration:</strong> Tiempo total (ej: <code>3s</code>).</li>
+                <li><strong>timing-function:</strong> Curva de aceleración (<code>ease-in</code>, <code>linear</code>).</li>
+                <li><strong>iteration-count:</strong> Repeticiones (<code>infinite</code> o número).</li>
+                <li><strong>fill-mode:</strong> Estado al terminar (<code>forwards</code> mantiene el final).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Animaciones Complejas: Encadenamiento</h2>
+            <p>Puedes aplicar múltiples animaciones separándolas por comas para combinar efectos independientes.</p>
+            <pre><code>.loader {
+  animation: 
+    girar 2s linear infinite,
+    cambiarColor 5s ease alternate infinite;
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>4. Experiencias Interactivas</h2>
+            <h3>Interacción con Hover</h3>
+            <p>Puedes pausar animaciones mediante <code>animation-play-state: paused;</code> al pasar el ratón.</p>
+            
+            <h3>El truco del Checkbox (Menús sin JS)</h3>
+            <p>Usa el estado <code>:checked</code> de un input para disparar animaciones en otros elementos mediante el selector de hermano (<code>~</code>).</p>
+        </section>
+
+        <section>
+            <h2>5. Rendimiento: El Secreto de las 60 FPS</h2>
+            <p>Para evitar tirones (reflow), la <strong>regla de oro</strong> es animar solo propiedades que se ejecuten en la GPU:</p>
+            <ul>
+                <li><strong><code>transform</code>:</strong> (translate, scale, rotate).</li>
+                <li><strong><code>opacity</code>:</strong> Para desvanecimientos.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Resumen de Mejores Prácticas</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Técnica</th>
+                        <th>Recomendación</th>
+                        <th>Propósito</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>will-change</strong></td>
+                        <td>Uso moderado</td>
+                        <td>Avisa al navegador la futura animación.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>cubic-bezier</strong></td>
+                        <td>Personalización</td>
+                        <td>Movimientos naturales.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>prefers-reduced-motion</strong></td>
+                        <td>Respetar usuario</td>
+                        <td>Desactiva animaciones según preferencia del sistema.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Siguiente paso: Crea Sistemas de Diseño con CSS Moderno (clamp, min, max).</p>
+    </footer>
+</div>
+
+</body>
+</html>

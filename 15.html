@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo de Desarrollo Web</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <style>
+        /* Variables CSS (Custom Properties) */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+            --success-color: #2ecc71;
+        }
+
+        /* Tema Oscuro */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f8f9fa;
+            --card-bg: #1e1e1e;
+            --secondary-color: #3498db;
+        }
+
+        /* Tipografía Fluida y Respeto a Accesibilidad */
+        html { font-size: 62.5%; } /* 1rem = 10px */
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Semántica HTML5 */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 0 0 20px 20px;
+        }
+
+        /* Metodología BEM */
+        .section-card {
+            background: var(--card-bg);
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .section-card__title {
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1.5rem;
+            font-size: clamp(2rem, 4vw, 3rem); /* Tipografía fluida */
+        }
+
+        /* Animaciones CSS */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        pre {
+            background: var(--code-bg);
+            color: var(--code-text);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 1.4rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+
+        th, td {
+            padding: 1.2rem;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th { background: var(--primary-color); color: white; }
+
+        .btn-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 2rem;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<button class="btn-toggle" onclick="toggleTheme()">Cambiar Tema</button>
+
+<header>
+    <h1>Guía Maestra de Desarrollo Web Profesional</h1>
+    <p>Optimización, SEO, Estilos y Animaciones</p>
+</header>
+
+<main class="container">
+    
+    <section class="section-card animate-fade">
+        <h2 class="section-card__title">1. Imágenes de Próxima Generación</h2>
+        <p>Utiliza formatos modernos para reducir el peso hasta un 50%:</p>
+        <ul>
+            <li><strong>WebP:</strong> 25-34% más ligero que JPEG.</li>
+            <li><strong>AVIF:</strong> El estándar de oro actual.</li>
+        </ul>
+        <pre><code>&lt;picture&gt;
+  &lt;source srcset="imagen.avif" type="image/avif"&gt;
+  &lt;source srcset="imagen.webp" type="image/webp"&gt;
+  &lt;img src="imagen.jpg" loading="lazy" width="800" height="600" alt="..."&gt;
+&lt;/picture&gt;</code></pre>
+        <p><strong>Regla de oro:</strong> Usa <code>loading="lazy"</code> para imágenes fuera de pantalla, pero nunca para la imagen principal (LCP).</p>
+    </section>
+
+    <section class="section-card animate-fade">
+        <h2 class="section-card__title">2. Semántica y SEO Técnico</h2>
+        <p>Google lee tu web como un árbol de nodos. Usa etiquetas con significado:</p>
+        <ul>
+            <li><code>&lt;main&gt;</code>: Núcleo del contenido.</li>
+            <li><code>&lt;article&gt;</code>: Contenido independiente.</li>
+            <li><strong>JSON-LD:</strong> Formato recomendado para Datos Estructurados.</li>
+        </ul>
+    </section>
+
+    <section class="section-card animate-fade">
+        <h2 class="section-card__title">3. Fuentes Web y Unidades Relativas</h2>
+        <p>Evita el uso de píxeles (<code>px</code>) y prefiere <code>rem</code> para accesibilidad.</p>
+        <div style="background: #e1f5fe; padding: 1rem; border-radius: 8px; border-left: 4px solid #03a9f4;">
+            <strong>Tip:</strong> Usa <code>font-display: swap;</code> para evitar que el texto sea invisible mientras carga la fuente (FOIT).
+        </div>
+        <pre><code>h1 { font-size: clamp(2rem, 5vw + 1rem, 4rem); } /* Tipografía fluida */</code></pre>
+    </section>
+
+    <section class="section-card animate-fade">
+        <h2 class="section-card__title">4. Arquitectura CSS</h2>
+        <p>Usa <strong>BEM</strong> (Block, Element, Modifier) para mantener la especificidad baja y el código reutilizable.</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Concepto</th>
+                    <th>Ejemplo BEM</th>
+                    <th>Variables CSS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bloque</td>
+                    <td><code>.card</code></td>
+                    <td><code>--card-bg</code></td>
+                </tr>
+                <tr>
+                    <td>Elemento</td>
+                    <td><code>.card__title</code></td>
+                    <td><code>--text-color</code></td>
+                </tr>
+                <tr>
+                    <td>Modificador</td>
+                    <td><code>.card--featured</code></td>
+                    <td>Dinámico con JS</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="section-card animate-fade">
+        <h2 class="section-card__title">5. Animaciones a 60 FPS</h2>
+        <p>Para animaciones fluidas, anima solo <code>transform</code> y <code>opacity</code>. Esto utiliza la GPU y evita el <em>reflow</em> del navegador.</p>
+        <pre><code>@keyframes flotar {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}</code></pre>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container" style="text-align: center; font-size: 1.4rem; padding-bottom: 4rem;">
+        <p>Basado en el Tutorial Completo de Desarrollo Web. [Soporte: LinkedIn/oscarlizarragag]</p>
+    </div>
+</footer>
+
+<script>
+    /* Lógica de cambio de tema */
+    function toggleTheme() {
+        const body = document.documentElement;
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        body.setAttribute('data-theme', newTheme);
+    }
+
+    /* Detección automática de preferencia del sistema */
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+</script>
+
+</body>
+</html>

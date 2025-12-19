@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Optimización de Fuentes Web y Tipografía</title>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --text-color: #1f2937;
+            --bg-color: #f9fafb;
+            --code-bg: #111827;
+            --card-bg: #ffffff;
+            --accent-color: #06b6d4;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            border-bottom: 2px solid var(--bg-color);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        h1 { color: var(--primary-color); margin-top: 0; }
+        h2 { color: var(--text-color); border-left: 4px solid var(--accent-color); padding-left: 15px; margin-top: 40px; }
+        h3 { color: var(--primary-color); }
+
+        code {
+            background-color: #f3f4f6;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+
+        pre code { background: none; color: inherit; padding: 0; }
+
+        .info-box {
+            background-color: #ecfeff;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th { background-color: var(--primary-color); color: white; }
+
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web</h1>
+        <p>Optimización y Rendimiento: Fuentes Web y Tipografía Profesional</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Google Fonts de Forma Profesional</h2>
+            <p>Muchos desarrolladores simplemente copian el enlace de Google Fonts, pero esto añade peticiones externas que pueden ralentizar la carga.</p>
+            
+            <h3>Mejores prácticas:</h3>
+            <ul>
+                <li><strong>Limita los pesos:</strong> No cargues pesos innecesarios; cada peso es un archivo extra.</li>
+                <li><strong>Auto-hospedaje (Self-hosting):</strong> Sírvelas desde tu propio servidor para eliminar la resolución DNS externa y aprovechar HTTP/2.</li>
+                <li><strong>Preconectar:</strong> Si usas sus servidores, acelera la conexión con <code>preconnect</code>:</li>
+            </ul>
+
+            <pre><code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>2. Dominando @font-face y font-display</h2>
+            <p>Al hospedar fuentes propias, utiliza el formato <strong>WOFF2</strong>, que es el más comprimido y eficiente actualmente.</p>
+            
+            <pre><code>@font-face {
+  font-family: 'MiFuenteCustom';
+  src: url('/fonts/mi-fuente.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap; /* CRÍTICO para el rendimiento */
+}</code></pre>
+
+            <div class="info-box">
+                <strong>El secreto: <code>font-display: swap</code></strong><br>
+                Muestra una fuente del sistema mientras se descarga la personalizada, evitando el Flash of Invisible Text (FOIT).
+            </div>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>3. Unidades Relativas: rem vs em</h2>
+            <p>Para rendimiento y accesibilidad, evita los píxeles (<code>px</code>) para el tamaño del texto.</p>
+            
+            
+            <ul>
+                <li><strong><code>rem</code> (Root EM):</strong> Se basa en el tamaño de fuente de la raíz (<code>&lt;html&gt;</code>), usualmente 16px por defecto.</li>
+                <li><strong><code>em</code>:</strong> Se basa en el tamaño de fuente del elemento padre, ideal para elementos que deben escalar proporcionalmente a su contenedor.</li>
+            </ul>
+
+            <h3>La técnica del 62.5%</h3>
+            <p>Ajusta el base para que 1rem equivalga a 10px, facilitando el cálculo:</p>
+            <pre><code>html { font-size: 62.5%; }
+body { font-size: 1.6rem; } /* Equivale a 16px */</code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>4. Tipografía Fluida</h2>
+            <p>Usa <code>clamp()</code> para que el texto crezca y se encoja suavemente según el Viewport sin exceso de media queries.</p>
+            <pre><code>h1 { font-size: clamp(2rem, 5vw + 1rem, 4rem); }</code></pre>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>5. Optimización de Recursos (Preload)</h2>
+            <p>Indica al navegador que descargue la fuente de inmediato si es esencial para el renderizado inicial:</p>
+            <pre><code>&lt;link rel="preload" href="/fonts/mi-fuente.woff2" as="font" type="font/woff2" crossorigin&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>Comparativa de Formatos y Unidades</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Recomendación</th>
+                        <th>Por qué</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Formato</strong></td>
+                        <td>WOFF2</td>
+                        <td>30% menos peso que WOFF.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Unidad</strong></td>
+                        <td><code>rem</code></td>
+                        <td>Accesibilidad y escalabilidad.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Carga</strong></td>
+                        <td><code>font-display: swap</code></td>
+                        <td>Evita textos invisibles (FOIT).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cantidad</strong></td>
+                        <td>Máx. 2 familias</td>
+                        <td>Evita latencia y peso innecesario.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>¿Cuál es el siguiente paso? Considera usar <strong>Variable Fonts</strong> para manejar múltiples pesos en un solo archivo pequeño.</p>
+    </footer>
+</div>
+
+</body>
+</html>

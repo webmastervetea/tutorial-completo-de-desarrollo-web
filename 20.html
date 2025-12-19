@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Metodología BEM para CSS Escalable</title>
+    <style>
+        :root {
+            --primary-color: #2ecc71;
+            --secondary-color: #34495e;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #2c3e50;
+            --code-bg: #2d3436;
+            --code-text: #dfe6e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--bg-color);
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+
+        h1 { color: var(--secondary-color); margin-bottom: 5px; }
+        h2 { color: var(--secondary-color); margin-top: 30px; border-left: 5px solid var(--primary-color); padding-left: 15px; }
+        h3 { color: var(--primary-color); }
+
+        code {
+            background-color: #ecf0f1;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.85em;
+            margin: 1.5rem 0;
+        }
+
+        .highlight {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid var(--primary-color);
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 0.9em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Tutorial Completo de Desarrollo Web</h1>
+        <p>Arquitectura CSS: Metodología BEM (Block, Element, Modifier)</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. La Estructura de BEM</h2>
+            <p>El nombre de una clase BEM se divide en tres partes bien diferenciadas para evitar conflictos de especificidad:</p>
+            <ul>
+                <li><strong>Block (Bloque):</strong> El componente independiente y reutilizable (ej: <code>card</code>, <code>menu</code>, <code>button</code>).</li>
+                <li><strong>Element (Elemento):</strong> Una parte interna del bloque que no tiene sentido por sí sola (ej: <code>card__title</code>). Se une con dos guiones bajos <code>__</code>.</li>
+                <li><strong>Modifier (Modificador):</strong> Una variante o estado del bloque o elemento (ej: <code>card--featured</code>). Se une con dos guiones medios <code>--</code>.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>2. Anatomía de una Clase BEM en HTML</h2>
+            <p>Así se vería el marcado para una tarjeta de perfil siguiendo esta metodología:</p>
+            <pre><code>&lt;article class="card card--featured"&gt;
+  &lt;img src="user.jpg" class="card__avatar" alt="User"&gt;
+  &lt;h2 class="card__title"&gt;Juan Pérez&lt;/h2&gt;
+  &lt;p class="card__description"&gt;Desarrollador Full Stack&lt;/p&gt;
+  &lt;button class="card__button card__button--active"&gt;Seguir&lt;/button&gt;
+&lt;/article&gt;</code></pre>
+        </section>
+
+        <section>
+            <h2>3. Reglas de Oro para un BEM Correcto</h2>
+            <h3>A. Evita la estructura "Abuelo-Hijo-Nieto"</h3>
+            <p>BEM debe ser plano. Solo debe referenciar a su bloque raíz, sin importar la profundidad en el HTML.</p>
+            <ul>
+                <li><strong>Mal:</strong> <code>.card__body__title</code></li>
+                <li><strong>Bien:</strong> <code>.card__title</code></li>
+            </ul>
+
+            <h3>B. No uses BEM para todo</h3>
+            <p>Si un elemento es global, conviértelo en un bloque independiente (ej: <code>.btn</code>) para reutilizarlo fuera de su contenedor original.</p>
+
+            <h3>C. Especificidad baja</h3>
+            <p>Se utiliza casi siempre una sola clase para dar estilo, evitando el uso de <code>!important</code> o selectores anidados complejos.</p>
+        </section>
+
+        <section>
+            <h2>4. BEM y Preprocesadores (SASS)</h2>
+            <p>El símbolo <code>&amp;</code> en SASS facilita enormemente la escritura de clases BEM manteniendo el bloque agrupado:</p>
+            <pre><code>.card {
+  background: white;
+  &amp;__title { font-size: 1.5rem; }
+  &amp;__button { 
+    background: blue; 
+    &amp;--active { background: green; }
+  }
+  &amp;--featured { border: 2px solid gold; }
+}</code></pre>
+        </section>
+
+        <section>
+            <h2>5. Comparativa de Metodologías</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>CSS Convencional</th>
+                        <th>CSS con BEM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Especificidad</strong></td>
+                        <td>Suele ser alta</td>
+                        <td>Muy baja (una clase)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reutilización</strong></td>
+                        <td>Dificultada por el HTML</td>
+                        <td>Fácil (bloques módulos)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Legibilidad</strong></td>
+                        <td>Confusa en proyectos grandes</td>
+                        <td>Auto-explicativa</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>¿Qué sigue? El próximo paso lógico es la <strong>Arquitectura de Archivos (Método 7-1)</strong>.</p>
+    </footer>
+</div>
+
+</body>
+</html>
